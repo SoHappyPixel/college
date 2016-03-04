@@ -1,0 +1,4 @@
+//comienzo
+El formato de los numeros naturales tiene dos partes. La primera es una mantisa, que puede ser entera o decimal; por lo tanto puede tener signo, como 400, -54 y +34.28. Si la mantisa esta entre 0 y 1, la parte entera puede suprimirse. Por ejemplo: -.2.
+//segundo parrafo
+La segunda parte de un numero real es el exponente. Siguiendo la notacion mas habitual, el exponente comienza por una 'e' (mayuscula o minuscula), seguida por el signo y un numero. Por ejemplo, 10e-1 o 3.2E+3 serian numeros reales validos. Si el signo es positivo, puede omitirse, como en -.1e1.
