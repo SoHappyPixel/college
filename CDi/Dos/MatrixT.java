@@ -1,10 +1,13 @@
+///Paquete para la segunda práctica de CDI.
 package Dos;
 
+///Definición de la matrix para ejecución con hilos.
 public class MatrixT
 {
 	private int[][] m;
 	private int size = 0;
 
+	///Constructor de la matriz para hilos que recibe los datos enviados por consola.
 	MatrixT(int size, int type)
 	{
 		this.size = size;
@@ -18,6 +21,7 @@ public class MatrixT
 		}
 	}
 
+	///Operar la matriz.
 	public void sumM(MatrixT a, MatrixT b)
 	{
 		Thread[] aT = new Thread[size];
@@ -36,9 +40,7 @@ public class MatrixT
 			catch(InterruptedException e){}
 		}
 	}
-
-
-	///Relleno de matriz según el tipo elegido.
+	///Rellenar la matriz con numeros aleatorios.
 	public void randM()
 	{
 		int rand = 0;
@@ -49,12 +51,14 @@ public class MatrixT
 				this.m[i][j] = rand;
 			}
 	}
+	///Rellenar la matriz con un número igual al tamaño.
 	public void equalM()
 	{
 		for(int i=0; i<size; i++)
 			for(int j=0; j<size; j++)
 				this.m[i][j] = size;
 	}
+	///Rellenar la matriz para que sea la matriz identidad.
 	public void identityM()
 	{
 		for(int i=0; i<size; i++)

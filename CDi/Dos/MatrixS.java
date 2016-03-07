@@ -1,16 +1,19 @@
+///Paquete para la segunda práctica de CDI
 package Dos;
 
+///Definición de la matriz para ejecución secuencial.
 public class MatrixS
 {
 
-	private int size = 0;
 	private int[][] m;
+	private int size = 0;
 
+	///Constructor de la matriz para secuencial que recibe los datos enviados por consola.
 	MatrixS(int size, int type)
 	{
 		this.size = size;
 		this.m = new int[size][size];
-
+		///Si el segundo parametro enviado por consola es 0=random, 1=tamaño, 2=identidad.
 		switch (type) 
 		{
 			case 0: randM(); break;
@@ -26,20 +29,8 @@ public class MatrixS
 			for(int j=0; j<size; j++)
 				this.m[i][j] = mA.m[i][j] + mB.m[i][j];
 	}
-	///Mostrar la matriz.
-	public void showM()
-	{
-		for(int i=0; i<size; i++)
-		{
-			for(int j=0; j<size; j++)
-			{
-				System.out.print(this.m[i][j]+".");
-			}
-			System.out.println();
-		}
-	}
 
-	///Rellenar la matriz.
+	///Rellenar la matriz con numeros aleatorios.
 	public void randM()
 	{
 		int rand = 0;
@@ -50,12 +41,14 @@ public class MatrixS
 				this.m[i][j] = rand;
 			}
 	}
+	///Rellenar la matriz con un número igual al tamaño.
 	public void equalM()
 	{
 		for(int i=0; i<size; i++)
 			for(int j=0; j<size; j++)
 				this.m[i][j] = size;
 	}
+	///Rellenar la matriz para que sea la matriz identidad.
 	public void identityM()
 	{
 		for(int i=0; i<size; i++)

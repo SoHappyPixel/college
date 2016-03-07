@@ -1,5 +1,7 @@
+///Paquete para la segunda práctica de CDI.
 package Dos;
 
+///Definición del main para ejecución secuencial.
 public class MainS
 {
 	public static void main(String[] args)
@@ -7,6 +9,7 @@ public class MainS
 		///Registro del tiempo inicial
 		long time = System.currentTimeMillis();
 
+		///Captura de los parametros introducidos por consola.
 		int size = Integer.parseInt(args[0]);
 		int type = Integer.parseInt(args[1]);
 
