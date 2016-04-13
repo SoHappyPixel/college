@@ -1,6 +1,5 @@
 ///Paquete para la segunda práctica de CDI.
-package Dos;
-
+package Pract2;
 ///Definición del hilo que calcula la suma.
 public class CalcT extends Thread
 {
@@ -12,7 +11,6 @@ public class CalcT extends Thread
 	private int[] c;
 	///Tamaño de la fila
 	private int size;
-
 	///Constructor del hilo CalcT.
 	CalcT(int[] c, int[] a, int[] b, int size)
 	{
@@ -21,9 +19,8 @@ public class CalcT extends Thread
 		this.b = b;
 		this.size = size;
 	}
-
-	@Override
 	///Conjuntos de sentencias a ejecutar por el hilo.
+	@Override
 	public void run()
 	{
 		///Cálculo de los valores de una fila

@@ -1,41 +1,35 @@
 ///Paquete para la segunda práctica de CDI.
-package Dos;
-
+package Pract2;
 ///Definición de la matrix para ejecución con hilos.
 public class MatrixT
 {
 	private int[][] m;
 	private int size = 0;
-
 	///Constructor de la matriz para hilos que recibe los datos enviados por consola.
 	MatrixT(int size, int type)
 	{
 		this.size = size;
 		this.m = new int[size][size];
-
-		switch (type) 
+		switch (type)
 		{
 			case 0: randM(); break;
 			case 1: equalM(); break;
 			case 2: identityM(); break;
 		}
 	}
-
 	///Operar la matriz.
 	public void sumM(MatrixT a, MatrixT b)
 	{
 		Thread[] aT = new Thread[size];
-
 		for(int row=0; row<size; row++)
 		{
 			String name = String.valueOf(row);
 			CalcT ct = new CalcT(this.m[row],a.m[row],b.m[row],size);
 			Thread t = new Thread(ct,name);
-			aT[row]=t; t.start(); 
+			aT[row]=t; t.start();
 		}
-
 		for(Thread t : aT)
-		{ 
+		{
 			try{ t.join(); }
 			catch(InterruptedException e){}
 		}
