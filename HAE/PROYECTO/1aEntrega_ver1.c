@@ -23,8 +23,8 @@ sbit LCD_D4_Direction at TRISC4_bit;
 // Configurar timer.
 void setTimer()
 {
-    T0CON = 0xC3;
-    TMR0L = 6;
+	T0CON = 0xC3;
+	TMR0L = 6;
 }
 
 // Mostrar por pantalla.
@@ -39,64 +39,64 @@ void outLcd()
 // Manejo de interrupciones.
 void interrupt()
 {
-    // Interrupción del timer.
+	// Interrupción del timer.
 	if(INTCON.TMR0IF==1)
 	{
 		time = time +1; setTimer();
 		INTCON.TMR0IF=0 ;
 	}
-    // Interrupción si ECHO = high.
+	// Interrupción si ECHO = high.
 	if(INTCON.RBIF==1 && PortB.b4==1)
 	{
 		/*flagEcho=1;*/
-        setTimer();
-        x=PORTB;
-        INTCON.RBIF=0;
+		setTimer();
+		x=PORTB;
+		INTCON.RBIF=0;
 	}
-    // Interrupción si ECHO = low.
+	// Interrupción si ECHO = low.
 	if(INTCON.RBIF==1 && PortB.b4==0 /*&& flagEcho ==1*/)
 	{
 		/*flagEcho=0;*/
-        T0CON=0;
-        x=PORTB;
-        INTCON.RBIF=0;
-        outLcd();
-        delay_ms(1400);
-        time = 0;
-        flagTrigger = 0;
+		T0CON=0;
+		x=PORTB;
+		INTCON.RBIF=0;
+		outLcd();
+		delay_ms(1400);
+		time = 0;
+		flagTrigger = 0;
 	}
 }
 
 // Ejecución principal.
 void main()
 {
-    // Puertos y datos.
+	// Puertos y datos.
 	TRISB = 0xFF; PORTB = 0;
 	TRISC = 0x00; PORTC = 0;
 	TRISD = 0x00; PORTD = 0;
-    // Timer
+	// Timer
 	INTCON.TMR0IF = 0;
 	INTCON.TMR0IE = 1;
-    // Interrupciones en B up/down.
-    INTCON2.RBPU=0;
-    x=PORTB;
-    INTCON.RBIF=0;
-    INTCON.RBIE=1;
-    // Interrupciones globales.
+	// Interrupciones en B up/down.
+	INTCON2.RBPU=0;
+	x=PORTB;
+	INTCON.RBIF=0;
+	INTCON.RBIE=1;
+	// Interrupciones globales.
 	INTCON.GIE = 1;
-    // Pantalla LCD.
+	// Pantalla LCD.
 	Lcd_Init();
 	/ /Ejecución continua.
-    while(1)
+	while(1)
 	{
-        // Si no hay bandera, activa el trigger.
+		// Si no hay bandera, activa el trigger.
 		if(flagTrigger==0)
 		{
 			PortD.b1=1;
-            delay_us(10);
+			delay_us(10);
 			PortD.b1=0;
-            flagTrigger=1;
+			flagTrigger=1;
 		}
-        else asm nop;
+		else asm nop;
 	}
 }
