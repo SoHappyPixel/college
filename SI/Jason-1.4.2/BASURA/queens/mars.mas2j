@@ -1,8 +1,0 @@
-MAS mars {
-
-    infrastructure: Centralised
-
-    environment: QueensEnv
-    
-    agents: n;
-}

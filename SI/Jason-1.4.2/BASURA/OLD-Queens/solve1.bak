@@ -1,7 +1,0 @@
-+player(1) <- .wait({+player(0);}).
-+player(0) <- !getLists(A,F); if(.empty(F)) { .print(A) } else { !solve(F) }; -player(0)[source(percept)].
-
-+!solve(F) <- !randPos(F,R); !movePut(R).
-+!getLists(A,F) <- ?size(S); .findall([PosX,PosY],queen(PosX,PosY),A); ?iterator(0,S-1,A,F).
-+!randPos(F,R) <- ?depth(F,D); .random(T1); T2=T1*D-1; TR=math.round(T2); ?selectrand(F,TR,R).
-+!movePut(R) <- ?parser(R,GotoX,GotoY); move_towards(GotoX,GotoY); put(queen).

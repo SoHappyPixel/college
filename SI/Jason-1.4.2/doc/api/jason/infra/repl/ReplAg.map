@@ -1,8 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1_0" href="../../asSemantics/Agent.html" title="jason.asSemantics.Agent" alt="" coords="16,11,144,53"/>
-<area shape="rect" id="node1" href="../../asSemantics/Agent.html" title="&lt;TABLE&gt;" alt="" coords="5,5,155,59"/>
-<area shape="rect" id="node3_1" href="./ReplAg.html" title="jason.infra.repl.ReplAg" alt="" coords="49,118,111,143"/>
-<area shape="rect" id="node3" href="./ReplAg.html" title="&lt;TABLE&gt;" alt="" coords="38,107,122,155"/>
-<area shape="rect" id="node2_2" href="./ReplAgGUI.html" title="jason.infra.repl.ReplAgGUI" alt="" coords="37,214,123,239"/>
-<area shape="rect" id="node2" href="./ReplAgGUI.html" title="&lt;TABLE&gt;" alt="" coords="27,203,133,251"/>
-</map>
