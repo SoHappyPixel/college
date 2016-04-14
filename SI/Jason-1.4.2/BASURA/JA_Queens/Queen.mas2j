@@ -1,0 +1,7 @@
+MAS Queen
+{
+    infrastructure: Centralised
+    environment: E_Queen
+    agents: A_Queen;
+}
+

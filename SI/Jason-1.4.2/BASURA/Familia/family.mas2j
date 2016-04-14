@@ -1,0 +1,19 @@
+/* Jason Project 
+
+   -- Family relationships (1) --
+   
+   Versi�n tipo PROLOG en la que el Sistema est� constituido por un �nico agente
+   con personalidad m�ltiple
+
+*/
+
+MAS familyRel {
+
+    // use a thread pool instead of one thread by agent
+    // the pool has only four threads
+    infrastructure: Centralised 
+
+    agents: yo;
+
+}
+
