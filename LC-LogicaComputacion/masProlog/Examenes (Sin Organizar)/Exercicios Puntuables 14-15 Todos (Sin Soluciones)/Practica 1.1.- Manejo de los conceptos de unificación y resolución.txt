@@ -1,0 +1,50 @@
+ Título : Practica 1.1.- Manejo de los conceptos de unificación y resolución.
+Desde Martes, 28 de Octubre de 2014 a las 10:30 hasta Jueves, 18 de Junio de 2015 a las 19:00
+Tipo de envío : Archivo (archivo requerido, descripcion opcional)
+Visibilidad de la presentación : Sólo visible para profesor (es) y editor(es)
+Tipo de ejercicio : Individual
+Permitir envio pasada la fecha límite : Los usuarios no pueden realizar presentaciones tras la fecha de finalización
+Descripción
+
+    Ejercicio 1: El alumno deberá implementar un predicado de sintaxis:
+
+    get_asoc(Llave,ListAsoc,Valor)
+
+    tal que Valor es el resultado de recuperar en la lista de asociación
+    ListAsoc el valor asociado a la clave Llave.
+
+    Suponemos que una lista de asociación es un conjunto de pares [Llave,
+    Valor] agrupados en una lista, donde las llaves NO se repiten.
+
+    Ejemplo: La respuesta a la pregunta
+
+    :- get_asoc(b,[[a,1],[b,2],[c,3]],X).
+
+    es X=2
+
+    Nota máxima: 0.35 ptos
+
+    Ejercicio 2: El alumno deberá implementar un predicado de sintaxis:
+
+    escalar(Lista1,Lista2,Resultado)
+
+    tal que Resultado es el número real resultante de multiplicar
+    escalarmente los vectores representados por Lista1 y Lista2.
+
+    Ejemplo: La respuesta a la pregunta
+
+    :- escalar([1,2,3],[4,5,6], X)
+
+    es X=32, donde 32=1*4+2*5+3*6.
+
+    Nota máxima: 0.15 ptos
+
+    Documentación a presentar: El código se subirá a Faitic. El nombre del fichero estará formado por los apellidos de los autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de la implementación de la práctica.
+
+    Fecha de entrega y defensa: Mismo día de la práctica.

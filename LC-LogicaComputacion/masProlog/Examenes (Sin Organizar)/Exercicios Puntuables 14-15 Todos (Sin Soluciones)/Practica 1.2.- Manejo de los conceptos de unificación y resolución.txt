@@ -1,0 +1,52 @@
+ Título : Practica 1.2.- Manejo de los conceptos de unificación y resolución.
+Desde Miércoles, 29 de Octubre de 2014 a las 10:30 hasta Jueves, 18 de Junio de 2015 a las 19:00
+Tipo de envío : Archivo (archivo requerido, descripcion opcional)
+Visibilidad de la presentación : Sólo visible para profesor (es) y editor(es)
+Tipo de ejercicio : Individual
+Permitir envio pasada la fecha límite : Los usuarios no pueden realizar presentaciones tras la fecha de finalización
+Descripción
+
+    Ejercicio 1: 
+
+    El alumno deberá implementar un predicado de sintaxis:
+
+    eliminar(Lista,Posicion,Resultado)
+
+    tal que Resultado es la lista obtenida a partir de la
+    original Lista, una vez eliminado el elemento en la
+    posición Posicion.
+
+    Ejemplo: La respuesta a
+
+    :-eliminar([a,b,c,d,e,f,g,h,i],3,X)
+
+    es X = [a,b,d,e,f,g,h,i].
+
+    Nota máxima: 0.35 ptos
+
+    Ejercicio 2: 
+
+    El alumno deberá implementar un predicado de sintaxis:
+
+    insert_ceros(Lista,Resultado)
+
+    tal que Resultado es la lista resultante de intercalar ceros entre los
+    elementos de la lista Lista.
+
+    Ejemplo: La respuesta a
+
+    insert_ceros([1,2,[3,4],5], X)
+
+    es X = [1,0,2,0,[3,4],0,5,0].
+
+    Nota máxima: 0.15 ptos
+
+    Documentación a presentar: El código se subirá a Faitic. El nombre del fichero estará formado por los apellidos de los autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de la implementación de la práctica.
+
+    Fecha de entrega y defensa: Mismo día de la práctica.

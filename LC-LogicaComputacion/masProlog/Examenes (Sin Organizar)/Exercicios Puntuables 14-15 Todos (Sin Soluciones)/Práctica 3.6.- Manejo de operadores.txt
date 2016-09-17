@@ -1,0 +1,39 @@
+ Título : Práctica 3.6.- Manejo de operadores
+Desde Viernes, 28 de Noviembre de 2014 a las 10:30 hasta Jueves, 18 de Junio de 2015 a las 19:00
+Tipo de envío : Archivo (archivo requerido, descripcion opcional)
+Visibilidad de la presentación : Sólo visible para profesor (es) y editor(es)
+Tipo de ejercicio : Individual
+Permitir envio pasada la fecha límite : Los usuarios no pueden realizar presentaciones tras la fecha de finalización
+Descripción
+
+    Descripción: 
+
+    El alumno deberá implementar un predicado de sintaxis:
+
+    la Fig_1 es_a_la Fig_2 como_la Fig_3 es_a_la Fig_4 mediante_la_analogia Relacion
+
+    tal que Relacion es la relación de analogía que se establece entre cualquiera de las figuras Fig_i implicadas en la frase. Las relaciones que se consideran son: centro, borde, igual e inversa.
+
+    La relación "inversa" se da entre dos figuras del tipo:
+
+    Forma_1 dentro_de Forma_2 dentro_de Forma_3
+
+    Forma_3 dentro_de Forma_2 dentro_de Forma_1
+
+    El alumno debera, además, implementar una relación adicional que exija la definición de la asociatividad del operador "dentro_de" que se usa para nombrar a las figuras.
+
+    Las figuras a considerar son las de la ilustración adjunta.
+
+    Documentación a presentar: El código se enviará, además, a través de Faitic. El nombre del fichero estará formado por los apellidos de los
+    autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de
+    la implementación de la práctica.
+
+    Fecha de entrega y defensa: Mismo día de la práctica.
+
+    Nota Máxima: 0'75 ptos

@@ -1,8 +1,0 @@
-MAS mars {
-    infrastructure: Centralised
-    environment: QueensEnv
-    agents:
-		block r2 [beliefs="playAs(0),playAs(1)"];
-		white r0 [beliefs="playAs(0)"];
-		black r1 [beliefs="playAs(1)"];
-}

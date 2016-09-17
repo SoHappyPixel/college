@@ -1,3 +1,0 @@
-flex c_cutre.l
-gcc -o c_cutre lex.yy.c
-./c_cutre ejemplo.c editado.c

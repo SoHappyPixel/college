@@ -1,0 +1,60 @@
+ Título : Ejemplo normalizacion polinomios
+Desde Martes, 09 de Dicembre de 2014 a las 10:56 hasta Miércoles, 09 de Dicembre de 2015 a las 10:56
+Tipo de envío : Archivo (archivo requerido, descripcion opcional)
+Visibilidad de la presentación : Sólo visible para profesor (es) y editor(es)
+Tipo de ejercicio : Individual
+Permitir envio pasada la fecha límite : Los usuarios no pueden realizar presentaciones tras la fecha de finalización
+Descripción
+
+    % Normalizacion de polinomios inspirada en el modelo de ordenacion
+    % de listas por insercion (podriamos habernos inspirado en cualquier
+    % otro modelo de ordenacion de listas), y teniendo en cuenta que el
+    % operador lista es asoc. derecha, mientras que el + lo es por
+    % la izdq.
+    %
+    % Suponemos siempre expresiones iniciales del tipo 0+X, para proveer
+    % un axioma de parada.
+    %
+    % Se ha mantenido una nomenclatura tipo Cdr + Car para reforzar el
+    % paralelismo con el caso de las listas.
+
+    norm(0,0).
+    norm(Cdr+Car,ExprOrd):- norm(Cdr,CdrOrd),
+                            coloca(Car,CdrOrd,ExprOrd).
+
+    coloca(A,0,0+A).
+    coloca(C*X**D, Cddr + A*X**B, R + A*X**B):- D < B, !,
+                                                coloca(C*X**D, Cddr, R).
+    coloca(C*X**D, Cddr + A*X**B, Cddr + A*X**B + C*X**D).
+
+    % Ejemplo de ejecucion:
+    %
+    % ?- norm(0+1*X**5+1*X**2+1*X**8+1*X**10+1*X**3+1*X**7, R).
+    % R = 0+1*X**2+1*X**3+1*X**5+1*X**7+1*X**8+1*X**10 .
+    %
+    % donde se han usado monomios del tipo +1*X**A simplemente para
+    % facilitar la comprension visual del resultado. En caso de
+    % monomios negativos -A*X**B han de tratarse en la forma +(-A)*X**B
+
+    % Para mostrar el paralelismo con la ordenacion de listas por
+    % insercion, incluyo el codigo de dicho algoritmo. Puede apreciarse
+    % que el paralelismo es absoluto con la resolucion del problema
+    % de la normalizacion de polinomios.
+    %
+    % Los unicos cambios son los derivados del hecho de que las
+    % listas son asociativas por la derecha, mientras que el operador
+    % + lo es por la izqd.
+
+    orden-ins([],[]).  
+    orden-ins([Car|Cdr],ListaOrd) :-  orden-ins(Cdr,CdrOrd),  
+                                      inserta(Car,CdrOrd,ListaOrd).
+
+    inserta(X,[],[X]).  
+    inserta(Car,[Cadr|Cddr],[Cadr|R]) :-  Cadr < Car, !,
+                                          inserta(Car,Cddr,R).  
+    inserta(Car,[Cadr|Cddr],[Car,Cadr|Cddr]).
+
+    % Ejemplo de ejecucion:
+    %
+    % ?- orden-ins([1,3,5,2,0,10,8],X).
+    % X = [0, 1, 2, 3, 5, 8, 10] 

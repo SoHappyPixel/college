@@ -1,0 +1,37 @@
+ Título : Práctica 3.2.- Manejo de operadores
+Desde Martes, 25 de Noviembre de 2014 a las 12:30 hasta Jueves, 18 de Junio de 2015 a las 19:00
+Tipo de envío : Archivo (archivo requerido, descripcion opcional)
+Visibilidad de la presentación : Sólo visible para profesor (es) y editor(es)
+Tipo de ejercicio : Individual
+Permitir envio pasada la fecha límite : Los usuarios no pueden realizar presentaciones tras la fecha de finalización
+Descripción
+
+    Descripción: El alumno deberá implementar un predicado de sintaxis:
+
+    la union_de Conj_1 y Conj_2 es el Conj_3
+
+    tal que Conj_3 es el resultado de unir los conjuntos Conj_1 y Conj_2.
+
+    Supondremos que un conjunto es una lista en la que no hay elementos repetidos.
+
+    NOTA: Observar que "la" y "el" son operadores independientes de "union_de" y "es", respectivamente.
+
+    Ejemplo: La respuesta a la pregunta
+
+    :- la union_de [1,2,3] con [3,4,5] es el X.
+
+    es
+
+    X = [4, 5, 1, 2, 3]
+
+    Documentación a presentar: El código se enviará, además, a través de Faitic. El nombre del fichero estará formado por los apellidos de los autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de la implementación de la práctica.
+
+    Fecha de entrega y defensa: Mismo día de la práctica.
+
+    Nota Máxima: 0'75 ptos

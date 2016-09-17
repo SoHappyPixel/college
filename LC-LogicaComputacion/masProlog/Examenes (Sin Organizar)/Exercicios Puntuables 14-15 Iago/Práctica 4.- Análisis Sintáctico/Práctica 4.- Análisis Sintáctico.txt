@@ -1,0 +1,23 @@
+Descripción
+
+    Descripción: El alumno deberá implementar un predicado de sintaxis:
+
+    frase(Frase, Arbol)
+
+    tal que Arbol es el árbol sintáctico resultante de analizar la frase Frase. Deberán garantizarse las congruencias de número y género.
+
+    Requisitos: El alumno deberá escoger un texto con 6 frases cuyos árboles sean diferentes, extraído de una fuente localizable (novela, cuento, texto educativo, periódico, ...), cuyo origen debe indicar. El programa deberá poder analizar cada una de las frases seleccionadas.
+
+    Documentación a presentar: El código se enviará, junto con el texto e indicando claramente su origen, a través de Faitic. El nombre del fichero estará formado por los apellidos de los autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de la implementación de la práctica. La puntuación dependerá de la complejidad del texto que se analice.
+
+    Fecha de entrega y defensa: Semana del 8 de diciembre.
+
+    Calificación máxima: 1 pto
+
+    Nota orientativa: El alumno puede tomar como ejemplo indicativo la DCG de la pag. 214 de los apuntes.

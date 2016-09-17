@@ -1,0 +1,56 @@
+ Título : Practica 1.3.- Manejo de los conceptos de unificación y resolución.
+Desde Viernes, 31 de Octubre de 2014 a las 10:30 hasta Jueves, 18 de Junio de 2015 a las 19:00
+Tipo de envío : Archivo (archivo requerido, descripcion opcional)
+Visibilidad de la presentación : Sólo visible para profesor (es) y editor(es)
+Tipo de ejercicio : Individual
+Permitir envio pasada la fecha límite : Los usuarios no pueden realizar presentaciones tras la fecha de finalización
+Descripción
+
+    Ejercicio 1: 
+
+    El alumno deberá implementar un predicado de sintaxis:
+
+    borrar_unicos(Lista,Resultado)
+
+    tal que Resultado es la lista resultante de borrar de la lista Lista,
+    aquellos elementos que NO se repiten.
+
+    Ejemplo: La respuesta a la pregunta
+
+    borrar_unicos([1,2,[3,4],2,3,4,1], X)
+
+    es X=[1,2].
+
+    Nota máxima: 0.35 ptos
+
+     
+
+    Ejercicio 2: 
+
+    El alumno deberá implementar un predicado de sintaxis:
+
+    anadir(Elem, Conj, Result)
+
+    de tal forma que Result es el resultado de anadir el elemento
+    Elem al conjunto Conj.
+
+    Ejemplo: La respuesta a la pregunta
+
+    anadir(1,[4,5,6], X)
+
+    es X=[1,4,5,6]
+
+    Nota máxima: 0.15 ptos
+
+     
+
+    Documentación a presentar: El código se subirá a Faitic. El nombre del fichero estará formado por los apellidos de los autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de la implementación de la práctica.
+
+    Fecha de entrega y defensa: Mismo día de la práctica.
+

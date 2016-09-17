@@ -1,5 +1,0 @@
-clear
-flex code.l
-gcc -o code lex.yy.c
-./code file.txt
-rm lex.yy.c code

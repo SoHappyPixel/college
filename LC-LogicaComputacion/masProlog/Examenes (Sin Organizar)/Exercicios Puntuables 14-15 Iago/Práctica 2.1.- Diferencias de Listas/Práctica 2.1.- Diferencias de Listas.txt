@@ -1,0 +1,30 @@
+Descripción
+
+    Objetivo: Partiendo del siguiente código, correspondiente al algoritmo de ordenación quicksort,
+
+    quicksort([],[]).
+    quicksort([Car|Cdr],R) :- partir(Car,Cdr,Izq,Der),
+                                            quicksort(Izq,Izq_ordenada),
+                                            quicksort(Der,Der_ordenada),
+                                            concatenar(Izq_ordenada,[Car|Der_ordenada],R).
+
+    partir(_,[],[],[]).
+    partir(Pivote,[Car|Cdr],[Car|Izq],Der) :- Car =< Pivote, partir(Pivote,Cdr,Izq,Der).
+    partir(Pivote,[Car|Cdr],Izq,[Car|Der]) :- Car > Pivote, partir(Pivote,Cdr,Izq,Der).
+
+    concatenar([],L,L).
+    concatenar([Car|Cdr],L,[Car|R]):-concatenar(Cdr,L,R).
+
+    el alumno deberá implementar de nuevo el algoritmo quicksort, usando diferencias de listas en lugar de la concatenación.
+
+    Nota máxima: 0.5 ptos
+
+    Documentación a presentar: El código se subirá a Faitic. El nombre del fichero estará formado por los apellidos de los autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de la implementación de la práctica.
+
+    Fecha de entrega y defensa: Mismo día de la práctica.

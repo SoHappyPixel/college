@@ -1,0 +1,43 @@
+ Título : Práctica Final.- Derivación formal
+Desde Martes, 09 de Dicembre de 2014 a las 08:00 hasta Jueves, 18 de Junio de 2015 a las 19:00
+Tipo de envío : Archivo (archivo requerido, descripcion opcional)
+Visibilidad de la presentación : Sólo visible para profesor (es) y editor(es)
+Tipo de ejercicio : Individual
+Permitir envio pasada la fecha límite : Los usuarios no pueden realizar presentaciones tras la fecha de finalización
+Descripción
+
+    Título: Derivación formal de expresiones matemáticas
+
+    Descripción: El alumno deberá implementar un predicado de sintaxis:
+
+    derivar(Expresion, Variable, Derivada)
+
+    tal que Derivada es el resultado de derivar la expresión Expresion respecto a la variable Variable. Las expresiones a derivar serán de cualquier tipo, sin restricciones.
+
+    Ejemplo: La respuesta a la pregunta
+
+    derivada(sen(X^3)+5*Y*X*^4, X, Derivada)
+
+    debe ser
+
+    Derivada= 3*X^2*cos(X^3)+4*5*Y*X^3
+
+    y la respuesta a la pregunta
+
+    derivada(sen(X^3)+5*Y*X*^4, Y, Derivada)
+
+    debe ser
+
+    Derivada= 5*X^4
+
+    Documentación a Presentar: El código se enviara a través de Faitic. El nombre del fichero estará formado por los apellidos de los autores en orden alfabético.
+
+    Ej.- DarribaBilbao-VilaresFerro.pl
+
+    Grupos: Se podrá realizar individualmente o en grupos de dos personas.
+
+    Defensa: Consistirá en una demo al profesor, que calificará tanto los resultados como las respuestas a las preguntas que realice acerca de la implementación de la práctica. La puntuación dependerá de la capacidad de cálculo y (sobre todo) de simplificación en las respuestas calculadas (sumas, restas, factores comunes, divisiones, ...).
+
+    Fecha de Entrega y Defensa: Semana del 15 de diciembre.
+
+    Calificación Máxima: 1'25 ptos
