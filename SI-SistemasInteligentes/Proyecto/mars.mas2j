@@ -1,0 +1,17 @@
+MAS mars
+{
+    infrastructure: Centralised
+	
+    environment: QueensEnv
+    
+	agents:
+	//Agente de testeo proporcionado por el profesor.
+		//white checker [beliefs="playAs(0),is(first)"];
+		//black checker [beliefs="playAs(1)"];
+		//configurer checker;
+	
+	//Agente de los alumnos.
+        white ag [beliefs="playAs(0)"];
+		black ag [beliefs="playAs(1)"];        
+		//configurer bb;                              
+}
