@@ -47,6 +47,37 @@ import itertools
 print([x for x in itertools.permutations('1234')]) # on a tuple.
 print list(map("".join, itertools.permutations('1234'))) # on a string.
 
-# 8.-
-# 9.-
+# 8.- Define a class which has at least two methods.
+class ocho:
+    def __init__(self):
+        self.cadena=''
+    def getString(self):
+        self.cadena = raw_input("Your desires are orders to me:  ")
+    def printString(self):
+        print "Here's your sentence:  {cadena}".format(cadena=self.cadena)
+oct = ocho()
+oct.getString()
+oct.printString()
+
+# 9.- A game of roulette.
+import random
+from datetime import datetime
+
+random.seed(datetime.now())
+user_num = ''
+
+while True :
+    user_num = raw_input("Tell me a number:  ")
+    if user_num == 'q':
+        print "\nSe acabo el programa"
+        exit()
+    elif user_num.isdigit() :
+        roulette = random.randint(0,9)
+        if int(user_num) == roulette :
+            print "R: {r} | Y: {y}. You win! :D".format(r=roulette,y=user_num)
+        else :
+            print "R: {r} | Y: {y}. You lose! :(".format(r=roulette,y=user_num)
+    else :
+        print "Haha! Nice try but... Try again."
+
 # 10.-
