@@ -23,29 +23,33 @@ print tuple(li)
 # 4.- Compute word frequency of a text file and print it ordered.
 import sys
 words = open(sys.argv[1]).read().split()
-for w in words
-    freq[words.count(w)] = w
-print freq.sort()
+freq={}
+for w in words:
+    freq.update({w:words.count(w)})
+for i in sorted(freq.iterkeys()) :
+    print i,freq[i]
 
-# 5.- Matrix from file. /Cómo hacer escalable la parte del With?/
+# 5.- Matrix from file. / block read & numpy /
 import sys
 def mat_calc(matrix):
     for l in matrix:
         for n in l.split():
             yield int(n)
-with open(sys.argv[1]) as matrix:
+with open(sys.argv[1]) as matrix: # add EOF while
     print mat_calc(matrix).next() * 2
     print mat_calc(matrix).next() * 2
 
-# 6.- A list whose elements are square of numbers. /Falt matplotlib/
-def pow_n(x):
-    return lambda y: y ** x
-print map(pow_n(2),range(1,21))
+# 6.- A list whose elements are square of numbers.
+import matplotlib.pyplot as plt
+f = lambda y: y * y
+sqr = map(f,range(1,21))
+plt.plot(range(1,21),sqr)
+plt.show()
 
 # 7.- Permutations.
 import itertools
 print([x for x in itertools.permutations('1234')]) # on a tuple.
-print list(map("".join, itertools.permutations('1234'))) # on a string.
+print map("".join, itertools.permutations('1234')) # on a string.
 
 # 8.- Define a class which has at least two methods.
 class ocho:
