@@ -1,0 +1,5 @@
+/Users/dcl/Documents/college/DIA-DisenoIntegracionApps/teoria1/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/dcl/Documents/college/DIA-DisenoIntegracionApps/teoria1/bin/Debug/teoria1.exe.mdb
+/Users/dcl/Documents/college/DIA-DisenoIntegracionApps/teoria1/bin/Debug/teoria1.exe
+/Users/dcl/Documents/college/DIA-DisenoIntegracionApps/teoria1/obj/x86/Debug/teoria1.exe
+/Users/dcl/Documents/college/DIA-DisenoIntegracionApps/teoria1/obj/x86/Debug/teoria1.exe.mdb
