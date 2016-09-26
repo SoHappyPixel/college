@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic
+using System.Collections.Generic;
 
 namespace Dups
 {
@@ -7,30 +7,32 @@ namespace Dups
 	{
 		// Leer string de consola
 		// Hacer un split de la cadena con los delimitadores
-		// Guardar la cadena en una lista y usar contains en un 
+		// Guardar la cadena en una lista y usar contains en un
 		// for para comprobar si hay más de uno.
 		static void Main(string[] args)
 		{
 			string nums = args[0];
 
-			nums = nums.Split(' ');
-			nums = nums.Split(',');
-			nums = nums.Split('-');
+			var SplitedNums = nums.Split(' ');
+			/* SplitedNums = SplitedNums.Split(','); */
+			/* SplitedNums = SplitedNums.Split('-'); */
 
-            var save = new List<int>();
+			Console.WriteLine(SplitedNums);
 
-			for ( i = 0; i < nums.Length; i++)
-			{
-				// guardar en la lista
-			}
+			/* var save = new List<int>(); */
 
-            for (int i = 0; i < lista1.Count; i++)
-            {
-                if (!(listaNueva.Contains(lista1[i])))
-                {
-                    listaNueva.Add(lista1[i]);
-                }
-            }
+			/* for ( i = 0; i < nums.Length; i++) */
+			/* { */
+			/* // guardar en la lista */
+			/* } */
+
+			/* for (int i = 0; i < lista1.Count; i++) */
+			/* { */
+			/*     if (!(listaNueva.Contains(lista1[i]))) */
+			/*     { */
+			/*         listaNueva.Add(lista1[i]); */
+			/*     } */
+			/* } */
 		}
 	}
 }

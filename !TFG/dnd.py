@@ -1,26 +1,118 @@
+"""
+.----------------------------------------------------------------------------------.
+|                                                                                  |
+|  Copyright (C) 2010  Cam Farnell                                                 |
+|                                                                                  |
+|  This program is free software; you can redistribute it and/or                   |
+|  modify it under the terms of the GNU General Public License                     |
+|  as published by the Free Software Foundation; either version 2                  |
+|  of the License, or (at your option) any later version.                          |
+|                                                                                  |
+|  This program is distributed in the hope that it will be useful,                 |
+|  but WITHOUT ANY WARRANTY; without even the implied warranty of                  |
+|  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                   |
+|  GNU General Public License for more details.                                    |
+|                                                                                  |
+|  You should have received a copy of the GNU General Public License               |
+|  along with this program; if not, write to the Free Software                     |
+|  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA. |
+|                                                                                  |
+`----------------------------------------------------------------------------------'
+
+
+This code demonstrates a real-world drag and drop.
+"""
+
+#Set Verbosity to control the display of information messages:
+#    2 Displays all messages
+#    1 Displays all but dnd_accept and dnd_motion messages
+#    0 Displays no messages
 Verbosity = 1
+
+#When you drag an existing object on a canvas, we normally make the original
+#    label into an invisible phantom, and what you are ACTUALLY dragging is
+#    a clone of the objects label. If you set "LeavePhantomVisible" then you
+#    will be able to see the phantom which persists until the object is
+#    dropped. In real life you don't want the user to see the phantom, but
+#    for demonstrating what is going on it is useful to see it. This topic
+#    beaten to death in the comment string for Dragged.Press, below.
 LeavePhantomVisible = 0
 
 from Tkinter import *
 import Tkdnd
 
 def MouseInWidget(Widget,Canvas,Event,Xlate=1):
+    """
+    Figure out where the cursor is with respect to a Widget on a Canvas.
+
+    Both "Widget" and the widget which precipitated "Event" must be
+        in the same root window for this routine to work.
+
+    We call this routine as part of drawing a DraggedObject inside a
+        TargetWidget, eg our Canvas. Since all the routines which need
+        to draw a DraggedObject (dnd_motion and it's friends) receive
+        an Event, and since an event object contain e.x and e.y values which say
+        where the cursor is with respect to the widget you might wonder what all
+        the fuss is about; why not just use e.x and e.y? Well it's never
+        that simple. The event that gets passed to dnd_motion et al was an
+        event against the InitiatingObject and hence what e.x and e.y say is
+        where the mouse is WITH RESPECT TO THE INITIATINGOBJECT. Since we want
+        to know where the mouse is with respect to some other object, like the
+        Canvas, e.x and e.y do us little good. You can find out where the cursor
+        is with respect to the screen (w.winfo_pointerxy) and you can find out
+        where it is with respect to an event's root window (e.*_root). So we
+        have three locations for the cursor, none of which are what we want.
+        Great. We solve this by using w.winfo_root* to find the upper left
+        corner of "Widget" with respect to it's root window. Thus we now know
+        where both "Widget" and the cursor (e.*_root) are with respect to their
+        common root window (hence the restriction that they MUST share a root
+        window). Subtracting the two gives us the position of the cursor within
+        the widget.
+    """
     x = Event.x_root - Widget.winfo_rootx()
     y = Event.y_root - Widget.winfo_rooty()
-
+    #So far, so good. We now know where the mouse is in the window in which
+    #    the canvas resided. BUT, canvas coordinates will be different from window
+    #    coordinates if the canvas can scroll and sometimes they are different
+    #    just because they are. Ask me how I know. In any case we now translate
+    #    from window to canvas coordinates which is a Good Thing.
     if Xlate:
         x = int(round(Canvas.canvasx(x)))
         y = int(round(Canvas.canvasy(y)))
     return (x,y)
 
 def Blab(Level,Message):
+    """
+    Display Message if Verbosity says to.
+    """
     if Verbosity >= Level:
         print Message
 
 class Dragged:
+    """
+    This is a prototype thing to be dragged and dropped.
+
+    Derive from (or mixin) this class to create real draggable objects.
+
+    If you derive from this class and want something nicer to represent the
+        object on the screen (like an image), you can do so easily by
+        overriding the methods WidgetShow and WidgetHide with nethods which
+        display whatever you want.
+    """
+    #We use this to assign a unique number to each instance of Dragged.
+    #    This isn't a necessity; we do it so that during the demo you can
+    #    tell one instance from another.
     NextNumber = 0
 
     def __init__(self,Type='Generic'):
+        """
+        Create the dragged object.
+
+        By default we are a draggable object of drag-type "Generic".
+            Pass in a different type if you want. Creating draggable objects of
+            different types allows dnd enabled target widgets to be selective
+            about which dragged objects they will and won't accept.
+        """
         Blab(1, "An instance of Dragged has been created")
         assert type(Type) == type('')
         self.DragType = Type
@@ -40,6 +132,18 @@ class Dragged:
         self.NominalLabelHeight = None
 
     def PlaceOnCanvas(self,Canvas,XY):
+        """
+        Call this method to place us on an arbitrary canvas at location XY.
+
+        If we are already on a canvas, then we remove ourselves from that canvas
+            before installing ourself on the specified canvas. Probably best not
+            to call this method while we are in mid-drag.
+
+        This method is handy if you want to place a newly minted draggable object
+            directly on a canvas without the user having to drag it there. It
+            will also work if you simply want to move an existing draggable object
+            from one canvas to another.
+        """
         #if we are on an existing canvas, then get off of it.
         self.Vanish()
         #draw ourself on the new canvas. Since we are being placed arbitrarily,
@@ -51,18 +155,47 @@ class Dragged:
         self.Label.bind('<ButtonPress>',self.Press)
 
     def dnd_end(self,Target,Event):
+        """
+        This gets called when we are dropped.
+        """
         Blab(1, "%s has been dropped; Target=%s"%(self.Name,`Target`))
         if self.Canvas==None and self.OriginalCanvas==None:
-           return
+            #We were created and then dropped in the middle of nowhere, or
+            #    we have been told to self destruct. In either case
+            #    nothing needs to be done and we will evaporate shortly.
+            return
         if self.Canvas==None and self.OriginalCanvas<>None:
+            #We previously lived on OriginalCanvas and the user has
+            #   dragged and dropped us in the middle of nowhere. What you do
+            #   here rather depends on your own personal taste. There are 2 choices:
+            #   1) Do nothing. The dragged object will simply evaporate. In effect
+            #      you are saying "dropping an existing object in the middle
+            #      of nowhere deletes it".  Personally I don't like this option because
+            #      it means that if the user, while dragging an important object,
+            #      twitches their mouse finger as the object is in the middle of
+            #      nowhere then the object gets immediately deleted. Oops.
+            #   2) Resurrect the original label (which has been there but invisible)
+            #      thus saying "dropping an existing dragged object in the middle of
+            #      nowhere is as if no drag had taken place". Thats what the code that
+            #      follows does.
             self.Canvas = self.OriginalCanvas
             self.ID = self.OriginalID
             self.Label = self.OriginalLabel
             self.WidgetShow(self.Label)
+            #If the canvas has an ObjectDict to track dragged objects, make sure we are
+            #    listed in it. Since we were dragged off the canvas, we will not be
+            #    currently listed, and since we are now popping back up on the canvas,
+            #    we should be listed.
             if hasattr(self.Canvas,'ObjectDict') and type(self.Canvas.ObjectDict) == type({}):
                 self.Canvas.ObjectDict[self.Name] = self
             return
+        #At this point we know that self.Canvas is not None, which means we have an
+        #    label of ourself on that canvas. Bind <ButtonPress> to that label so the
+        #    the user can pick us up again if and when desired.
         self.Label.bind('<ButtonPress>',self.Press)
+        #If self.OriginalCanvas exists then we were an existing object and our
+        #    original label is still around although hidden. We no longer need
+        #    it so we delete it.
         if self.OriginalCanvas:
             self.OriginalCanvas.delete(self.OriginalID)
             self.OriginalCanvas = None
