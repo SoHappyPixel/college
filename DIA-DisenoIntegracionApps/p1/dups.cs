@@ -10,15 +10,12 @@ namespace Dups
 		{
 			var splt = new List<string>(args[0].Split(',','-',' '));
 
-			var dups = splt.GroupBy(x => x)
-				.Where(g => g.Count() > 1)
-				.Select(g => g.Key)
-				.ToList();
+			var dups = splt.GroupBy(s => s)
+				.SelectMany(grp => grp.Skip(1))
+				.Distinct();
 
 			foreach(var item in dups)
-			{
 				Console.Write(item.ToString() + " ");
-			}
 		}
 	}
 }

@@ -84,5 +84,5 @@ STATIC_URL = '/static/'
 
 # Template location
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(BASE_DIR), "pydj_bookshop/static","templates"),
+    os.path.join(BASE_DIR, 'static','templates'),
 )
