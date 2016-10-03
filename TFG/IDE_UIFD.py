@@ -5,41 +5,51 @@ import sys
 from PyQt5 import QtGui as g
 from PyQt5 import QtWidgets as w
 
-class Example(w.QMainWindow):
 
-    def __init__(self):
+class IDE_UIFD(w.QMainWindow) :
+
+    # Constructor base.
+    def __init__(self) :
         super().__init__()
-        self.initUI()
+        self.UI()
 
+    # Definición de la interfaz.
+    def UI(self) :
+        # 0. Buttons / Actions.
+        AB_exit = self.AB('Salir','Ctrl+Q','Dejar',self.close)
 
-    def initUI(self):
-        # el widget central debería ser un canvas.
-        self.setCentralWidget(w.QTextEdit())
+        # 1. Canvas
+        canvas = w.QTextEdit()
+        self.setCentralWidget(canvas)
 
-        # definición del botón (icono,tag,self).
-        exitAction = w.QAction(g.QIcon('exit24.png'), 'Exit', self)
-        # atajo de teclado.
-        exitAction.setShortcut('Ctrl+Q')
-        # descripción en statusbar.
-        exitAction.setStatusTip('Exit application')
-        # acción a realizar.
-        exitAction.triggered.connect(self.close)
+        # 2. Barra de menu.
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('Window')
+        fileMenu.addAction(AB_exit)
 
+        # 3. Barra de herramientas.
+        toolbar = self.addToolBar('Salir')
+        toolbar.addAction(AB_exit)
+
+        # 4. Barra lateral (izquierda).
+
+        # 5. Barra de estado.
         self.statusBar()
 
-        menubar = self.menuBar()
-        fileMenu = menubar.addMenu('&File')
-        fileMenu.addAction(exitAction)
-
-        toolbar = self.addToolBar('Exit')
-        toolbar.addAction(exitAction)
-
-        # self.setGeometry(300, 300, 350, 250)
+        # 6. Barra de titulo y lanzar la app.
         self.setWindowTitle('IDE_UIFD')
         self.show()
+
+    # Metodo para crear botones/acciones.
+    def AB(self,tag,shortcut,sb_text,action) :
+        AB = w.QAction(tag, self)       # botón
+        AB.setShortcut(shortcut)        # atajo
+        AB.setStatusTip(sb_text)        # statusbar
+        AB.triggered.connect(action)    # accion
+        return AB
 
 
 if __name__ == '__main__':
     app = w.QApplication(sys.argv)
-    ex = Example()
+    ui = IDE_UIFD()
     sys.exit(app.exec_())
