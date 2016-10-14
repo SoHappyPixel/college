@@ -69,7 +69,6 @@ public class GenerarCompostela {
 
 
         // Leer las claves ...
-        FileInputStream file;
         KeyFactory keyFactoryRSA = KeyFactory.getInstance("RSA", "BC");
 
         // Clave privada peregrino.
