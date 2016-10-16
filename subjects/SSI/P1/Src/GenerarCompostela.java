@@ -150,14 +150,14 @@ public class GenerarCompostela {
         compostela.anadirBloque( des_k_p );
 
         // Exportar Compostela con el nombre pasado en arg[0] ...
+        PaqueteDAO.escribirPaquete( args[0]+".paquete", compostela );
 
     }
 
-    public static byte[] file2bytes (String file) throws Exception
+    private static byte[] file2bytes (String file) throws Exception
     {
         Path path = Paths.get( file );
-        byte[] bytes = Files.readAllBytes( path );
-
-        return bytes;
+        return Files.readAllBytes( path );
     }
+
 }
