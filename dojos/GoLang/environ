@@ -1,2 +1,0 @@
-export GOPATH=~/Documents/ESEI/Dojo_GoLang
-export PATH=$PATH:$GOPATH/bin
