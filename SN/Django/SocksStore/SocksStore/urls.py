@@ -7,10 +7,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^ecom/', 'Customer.views.ecom', name='ecom'),
-    url(r'^$', 'Customer.views.home', name='home'),
-    url(r'^newCustomer/', 'Customer.views.newCustomer', name='newCustomer'),
-    url(r'^newProduct/', 'Product.views.newProduct', name='newProduct'),
+    url(r'^$', 'Store.views.home', name='home'),
+    url(r'^newCustomer/', 'Store.views.newCustomer', name='newCustomer'),
+    url(r'^newProduct/', 'Store.views.newProduct', name='newProduct'),
 )
 
 
