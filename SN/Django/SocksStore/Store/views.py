@@ -1,13 +1,17 @@
-from django.shortcuts import render, render_to_response, RequestContext, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect
+
+from .forms import ProductForm
+from .forms import CustomerForm
+
+from .models import Product
 
 
 def home(request):
-    return render_to_response('Home.html',
-        locals(),
-        context_instance=RequestContext(request))
+    welcome = 'A new reality for your feet !'
+    context = { 'welcome': welcome }
+    return render(request,'Home.html',context)
 
 
-from .forms import CustomerForm
 def newCustomer(request):
     form = CustomerForm( request.POST or None )
 
@@ -15,28 +19,43 @@ def newCustomer(request):
         instance = form.save(commit = False)
         print instance
         instance.save()
-        context= {
-            "title":"Thank you"
-        }
+        return HttpResponseRedirect( '/newCustomer' )
 
-    title = "Join now !!!"
-
-    context={
-        "title":title,
-        "form":form,
+    title = 'Join now !!!'
+    context = {
+        'title':title,
+        'form':form,
     }
 
     return render(request,'newCustomer.html',context)
 
 
-from .forms import ProductForm
 def newProduct(request):
     form = ProductForm( request.POST or None )
 
     if form.is_valid():
-        form.save(commit = False).save()
+        instance = form.save(commit = False)
+        print instance
+        instance.save()
         return HttpResponseRedirect( '/newProduct' )
 
-    return render_to_response('NewProduct.html',
-        locals(),
-        context_instance=RequestContext(request))
+    title = 'Add item !'
+    context={
+        'title':title,
+        'form':form,
+    }
+
+    return render(request,'NewProduct.html',context)
+
+
+def listProducts(request):
+    querySet = Product.objects.all()
+
+    title = 'Product List ...'
+
+    context = {
+        'querySet' : querySet,
+        'title' : title,
+    }
+
+    return render(request,'ListProducts.html',context)

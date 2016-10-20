@@ -8,8 +8,11 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'Store.views.home', name='home'),
+
     url(r'^newCustomer/', 'Store.views.newCustomer', name='newCustomer'),
+
     url(r'^newProduct/', 'Store.views.newProduct', name='newProduct'),
+    url(r'^listProducts/', 'Store.views.listProducts', name='listProducts'),
 )
 
 

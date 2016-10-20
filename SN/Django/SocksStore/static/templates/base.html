@@ -1,48 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
+<html lang="en"> <!-- Html ini -->
+	<head> <!-- Head ini -->
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<meta name="author" content="DaniCamba">
 		<meta name="description" content="SockStore">
-		<link rel="icon" href="/static/img/favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>SockStore</title>
-
+		<link rel="icon" href="/static/img/fav.ico">
 		<link href="/static/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/static/css/jumbotron-narrow.css" rel="stylesheet">
 
-	</head>
+		<script defer src="/static/js/jquery-3.1.1.min.js"></script>
+		<script defer src="/static/js/bootstrap.min.js"></script>
 
-	<body>
+		<title>SockStore</title>
+	</head> <!-- Head end -->
 
-		<div class="container">
-			<div class="header clearfix">
+	<body> <!-- Body ini -->
+		<div class="container"> <!-- Container ini -->
+			<div class="header clearfix"> <!-- Nav ini -->
 
 				<nav>
 					<ul class="nav nav-pills pull-right">
-						<li role="presentation"><a href="/newCustomer">Add Customer</a></li>
-						<li role="presentation"><a href="/newProduct">Add Products</a></li>
-						<li role="presentation"><a href="/admin">Admin</a></li>
+						<!-- Customer Dropdown -->
+						<li role="presentation" class="dropdown">
+							<!-- menu name -->
+   							<a data-toggle="dropdown" role="button">
+								Customer <span class="caret"/>
+							</a>
+							<!-- menu content -->
+							<ul class="dropdown-menu">
+								<!-- add -->
+								<li role="presentation">
+									<a href="/newCustomer">Add a new.</a>
+								</li>
+								<!-- ... -->
+							</ul>
+						</li>
+						<!-- Product Dropdown -->
+						<li role="presentation" class="dropdown">
+							<!-- menu name -->
+							<a data-toggle="dropdown" role="button">
+								Products <span class="caret"/>
+							</a>
+							<!-- menu content -->
+							<ul class="dropdown-menu">
+								<!-- add -->
+								<li role="presentation">
+									<a href="/newProduct">Add a new.</a>
+								</li>
+								<!-- list -->
+								<li role="presentation">
+									<a href="/listProducts">List all.</a>
+								</li>
+								<!-- ... -->
+							</ul>
+						</li>
+						<!-- Admin panel button -->
+						<li role="presentation">
+							<a href="/admin">Admin</a>
+						</li>
 					</ul>
 				</nav>
 
-				<a href="/"><h3 class="text-muted">Sock Store</h3></a>
+				<!-- Brand -->
+				<a href="/">
+					<h3 class="text-muted">
+						<img alt="Brand" src="/static/img/fav.ico"
+						height="40" width="40">&nbsp;&nbsp;&nbsp;Sock Store
+					</h3>
+				</a>
+				
+			</div> <!-- Nav end -->
 
-			</div>
+			<!-- Page Content -->
+			<div class="jumbotron"> {% block content %} {% endblock %} </div>
 
-			<div class="jumbotron">
-				{% block content %} {% endblock %}
-			</div>
+			<!-- Page Footer -->
+			<footer class="footer"> <p>&copy; 2016 gSocks, Inc.</p> </footer>
 
-			<footer class="footer">
-				<p>&copy; 2016 Daniel's Socks, Inc.</p>
-			</footer>
-
-		</div> <!-- /container -->
-
-	</body>
-
-</html>
+		</div> <!-- Container end -->
+	</body> <!-- Body end -->
+</html> <!-- Html end -->
