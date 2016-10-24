@@ -18,7 +18,7 @@ namespace FitnessExercise.View
 
 				var ex = from e in
 					root.Elements("Exercise")
-						 select e.Attributes();
+				        select e.Attributes();
 
 				foreach (var e in ex)
 				{
