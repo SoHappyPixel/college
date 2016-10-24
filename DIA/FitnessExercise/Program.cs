@@ -22,7 +22,8 @@ namespace FitnessExercise
 			s.AddExercise(e2);
 			s.AddExercise(e3);
 
-			s.SaveXml();
+			s.SaveXML();
+			s.LoadXML();
 		}
 	}
 }

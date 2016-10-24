@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Exercises>
+  <Exercise Name="meh1" Meters="1.1" Minutes="11" Date="24/10/2016 2:52:39">SOLO TEXTO</Exercise>
+  <Exercise Name="meh2" Meters="2.2" Minutes="22" Date="24/10/2016 2:52:39">SOLO TEXTO</Exercise>
+  <Exercise Name="meh3" Meters="3.3" Minutes="33" Date="24/10/2016 2:52:39">SOLO TEXTO</Exercise>
+</Exercises>
