@@ -12,32 +12,42 @@ namespace FitnessExercise.View
 
 		private void Build()
 		{
-			var vBox = new Gtk.VBox(false, 5);
+			// Widgets
+
+			// ... Labels
+			var title = new Gtk.Label("<b>Fitness Exercises</b>");
+			title.UseMarkup = true;
+
+			// ... Entrys
+			this.EntryName = new Gtk.Entry("");
+			this.EntryName.Alignment = 0.5f;
+			this.EntryMeters = new Gtk.Entry("");
+			this.EntryMeters.Alignment = 0.5f;
+			this.EntryMinutes = new Gtk.Entry("");
+			this.EntryMinutes.Alignment = 0.5f;
+
+			// ... Buttons
+			var SaveButton = new Gtk.Button("SAVE");
+			SaveButton.Clicked += (sender, e) => this.SaveEXE();
+
+			var ListButton = new Gtk.Button("LIST");
+			ListButton.Clicked += (sender, e) => this.ListEXE();
+
 
 			// Events
-			this.DeleteEvent += (o, args) => this.OnClose(); // Close the window to close the app
+			this.DeleteEvent += (o, args) => this.OnClose();
 
-			// Buttons
-			var SaveButton = new Gtk.Button("SAVE");
-			SaveButton.Clicked += (sender, e) => this.OnSave();
-
-			// Widgets
-			var lbl = new Gtk.Label("<b>Fitness Exercises</b>");
-			lbl.UseMarkup = true;
-
-			this.EntryName = new Gtk.Entry("0");
-			this.EntryName.Alignment = 1;
-			this.EntryMeters = new Gtk.Entry("0");
-			this.EntryMeters.Alignment = 1;
-			this.EntryMinutes = new Gtk.Entry("0");
-			this.EntryMinutes.Alignment = 1;
 
 			// VBox
-			vBox.PackStart(lbl, true, false, 5);
-			vBox.PackStart(this.EntryName, true, false, 5);
-			vBox.PackStart(this.EntryMeters, true, false, 5);
-			vBox.PackStart(this.EntryMinutes, true, false, 5);
-			vBox.PackStart(SaveButton, true, false, 5);
+			var vBox = new Gtk.VBox(false, 5);
+
+			vBox.PackStart(title, true, true, 5);
+			vBox.PackStart(this.EntryName, false, false, 1);
+			vBox.PackStart(this.EntryMeters, false, false, 1);
+			vBox.PackStart(this.EntryMinutes, false, false, 1);
+			vBox.PackStart(SaveButton, false, false, 3);
+			vBox.PackStart(ListButton, false, false, 3);
+
 
 			// Add the VBox
 			this.Add(vBox);

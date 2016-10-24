@@ -3,3 +3,8 @@
 /Users/dcl/Documents/college/DIA/FitnessExercise/bin/Debug/FitnessExercise.exe
 /Users/dcl/Documents/college/DIA/FitnessExercise/obj/x86/Debug/FitnessExercise.exe
 /Users/dcl/Documents/college/DIA/FitnessExercise/obj/x86/Debug/FitnessExercise.exe.mdb
+/Users/da/Documents/college/DIA/FitnessExercise/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/da/Documents/college/DIA/FitnessExercise/bin/Debug/FitnessExercise.exe.mdb
+/Users/da/Documents/college/DIA/FitnessExercise/bin/Debug/FitnessExercise.exe
+/Users/da/Documents/college/DIA/FitnessExercise/obj/x86/Debug/FitnessExercise.exe
+/Users/da/Documents/college/DIA/FitnessExercise/obj/x86/Debug/FitnessExercise.exe.mdb

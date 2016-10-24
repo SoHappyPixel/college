@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Xml.Linq;
 using FitnessExercise.Core;
 
 namespace FitnessExercise.View
@@ -7,19 +10,37 @@ namespace FitnessExercise.View
 	{
 		private void OnClose() => Gtk.Application.Quit();
 
-		private void OnSave()
+		public void ListEXE()
+		{
+			if (File.Exists("exercises.xml"))
+			{
+				var root = XElement.Load("exercises.xml");
+
+				var ex = from e in
+					root.Elements("Exercise")
+						 select e.Attributes();
+
+				foreach (var e in ex)
+				{
+					foreach (var a in e)
+					{
+						Console.Write(a + " ");
+					}
+					Console.WriteLine();
+				}
+			}
+		}
+
+		private void SaveEXE()
 		{
 			string SaveName = this.EntryName.Text;
 			float SaveMeters = Convert.ToSingle(this.EntryMeters.Text);
 			short SaveMinutes = Convert.ToInt16(this.EntryMinutes.Text);
 			var e = new Exercise(SaveName, SaveMeters, SaveMinutes);
-			e.SaveXML();
+			e.Save2XML();
 		}
 
-		private void OnEdit() { }
-		private void OnDelete() { }
+		private void EditEXE() { }
+		private void DeleteEXE() { }
 	}
 }
-
-//Meters = Convert.ToSingle(this.EntryMeters.Text);
-//Minutes = Convert.ToInt16(this.EntryMinutes.Text);
