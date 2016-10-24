@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Exercises>
-  <Exercise Name="meh1" Meters="1.1" Minutes="11" Date="2016-10-23T23:46:21.763306+02:00" />
-  <Exercise Name="meh2" Meters="2.2" Minutes="22" Date="2016-10-23T23:46:21.858934+02:00" />
-  <Exercise Name="meh3" Meters="3.3" Minutes="33" Date="2016-10-23T23:46:21.858949+02:00" />
-</Exercises>

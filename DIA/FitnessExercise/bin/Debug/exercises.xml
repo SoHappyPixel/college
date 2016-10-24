@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Exercises>
-  <Exercise Name="meh1" Meters="1.1" Minutes="11" Date="24/10/2016 2:52:39">SOLO TEXTO</Exercise>
-  <Exercise Name="meh2" Meters="2.2" Minutes="22" Date="24/10/2016 2:52:39">SOLO TEXTO</Exercise>
-  <Exercise Name="meh3" Meters="3.3" Minutes="33" Date="24/10/2016 2:52:39">SOLO TEXTO</Exercise>
-</Exercises>
+<Exercise Name="la" Meters="3" Minutes="34" Date="24/10/2016 13:52:01">
+  <Exercise Name="asdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:22" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:36" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:47" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:53" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:54" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:54" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:54" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:54" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="3" Date="24/10/2016 14:20:54" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="33" Date="24/10/2016 14:21:03" />
+  <Exercise Name="dfsasdjfa0" Meters="44" Minutes="33" Date="24/10/2016 14:21:55" />
+</Exercise>

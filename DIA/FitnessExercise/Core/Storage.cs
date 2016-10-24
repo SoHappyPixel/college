@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-namespace FitnessExercise.core
+namespace FitnessExercise.Core
 {
 	public class Storage
 	{
@@ -20,7 +20,7 @@ namespace FitnessExercise.core
 
 			foreach (Exercise ex in toXML)
 			{
-				var child = new XElement("Exercise", "SOLO TEXTO");
+				var child = new XElement("Exercise");
 
 				child.Add(new XAttribute("Name", ex.Name));
 				child.Add(new XAttribute("Meters", ex.Meters));
@@ -38,11 +38,17 @@ namespace FitnessExercise.core
 			{
 				var root = XElement.Load("exercises.xml");
 
-				IEnumerable<String> ex = from e in root.Elements("Exercise") select (String)e;
+				var ex = from e in
+					root.Elements("Exercise")
+				        select e.Attributes();
 
-				foreach (String e in ex)
+				foreach (var e in ex)
 				{
-					Console.WriteLine(e); //No está mostrando nada pq muestra el texto, no los atributos
+					foreach (var a in e)
+					{
+						Console.Write(a+" ");
+					}
+					Console.WriteLine();
 				}
 			}
 		}
