@@ -12,7 +12,9 @@ namespace FitnessExercise.Core
 		public short  Minutes { get; private set; }
 		public DateTime Date { get; private set; }
 
-		public Exercise( string Name, float Meters, short Minutes)
+
+		// Constructor para creación inicial.
+		public Exercise(string Name, float Meters, short Minutes)
 		{
 			this.Name = Name;
 			this.Meters = Meters;
@@ -20,10 +22,19 @@ namespace FitnessExercise.Core
 			this.Date = DateTime.Now;
 		}
 
+		// Constructor a utilizar en la carga del XML.
+		public Exercise(string Name, float Meters, short Minutes, DateTime Date)
+		{
+			this.Name = Name;
+			this.Meters = Meters;
+			this.Minutes = Minutes;
+			this.Date = Date;
+		}
+
+		// Crea este objeto en un XML si el XML ya existe lo actualiza añadiendo el objetvo.
 		public void Save2XML()
 		{
 			var Child = new XElement("Exercise");
-
 			Child.Add(new XAttribute("Name", this.Name));
 			Child.Add(new XAttribute("Meters", this.Meters));
 			Child.Add(new XAttribute("Minutes", this.Minutes));
@@ -34,12 +45,14 @@ namespace FitnessExercise.Core
 				var Root = XElement.Load("exercises.xml");
 				Root.Add(Child);
 				Root.Save("exercises.xml");
-			}
-			else { // Creat new ...
+			} 
+			else // Creat new ...
+			{
 				var Root = new XElement("Exercises");
 				Root.Add(Child);
 				Root.Save("exercises.xml");
 			}
 		}
+
 	}
 }
