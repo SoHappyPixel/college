@@ -17,6 +17,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class SellarCompostela {
 
+    // Recibe Compostela, ID_Albergue y Ficheros_K
     public static void main(String[] args) throws Exception
     {
 
@@ -62,14 +63,6 @@ public class SellarCompostela {
             String nombre = in.nextLine ();
             out.put("nombre",nombre);
 
-            System.out.print("DNI: ");
-            String dni = in.nextLine ();
-            out.put("dni",dni);
-
-            System.out.print("Domicilio: ");
-            String domicilio = in.nextLine ();
-            out.put("domicilio",domicilio);
-
             System.out.print("Fecha: ");
             String fecha = in.nextLine ();
             out.put("fecha",fecha);
@@ -78,9 +71,9 @@ public class SellarCompostela {
             String lugar = in.nextLine ();
             out.put("lugar",lugar);
 
-            System.out.print("Motivacion: ");
-            String motivacion = in.nextLine ();
-            out.put("motivacion",motivacion);
+            System.out.print("Incidencias: ");
+            String incidencia = in.nextLine ();
+            out.put("incidencia",incidencia);
 
             // Covertir datos a JSON.
             String outSTR = JSONUtils.map2json( out );
@@ -94,7 +87,7 @@ public class SellarCompostela {
         // FIRMA_A ...
 
         // Genera la spec de la clave privada.
-        PKCS8EncodedKeySpec specKRA = new PKCS8EncodedKeySpec( f2b(args[x]) );
+        PKCS8EncodedKeySpec specKRA = new PKCS8EncodedKeySpec( f2b(args[2]) );
 
         // Genera KR del Peregrino en base a la spec.
         PrivateKey KRA = genRSA.generatePrivate( specKRA );
@@ -112,7 +105,7 @@ public class SellarCompostela {
 
         // Crea bloque con datos resumidos encriptados con RSA.
         Bloque bFirma =
-            new Bloque( "Firma_Albergue", cipherRSA.doFinal( sha.digest() ) );
+            new Bloque( args[1]+"_Firma", cipherRSA.doFinal( sha.digest() ) );
 
 
 
@@ -134,14 +127,14 @@ public class SellarCompostela {
 
         // Crea bloque con los Datos encriptados con DES.
         Bloque bDatos =
-            new Bloque( "Datos_Albergue", cipherDES.doFinal() );
+            new Bloque( args[1]+"_Datos", cipherDES.doFinal() );
 
 
 
         // RSA_DES_A ...
 
         // Genera spec de la clave publica.
-        X509EncodedKeySpec specKUO = new X509EncodedKeySpec( f2b(args[x]) );
+        X509EncodedKeySpec specKUO = new X509EncodedKeySpec( f2b(args[3]) );
 
         // Genera KU de la oficina en base a la spec.
         PublicKey KUO = genRSA.generatePublic( specKUO );
@@ -152,7 +145,21 @@ public class SellarCompostela {
 
         // Crea bloque con clave DES encriptada con RSA.
         Bloque bDesKUO =
-            new Bloque( "DES_RSA_Peregrino", cipherRSA.doFinal( keyDES ) );
+            new Bloque( args[1]+"_DESRSA", cipherRSA.doFinal( keyDES ) );
+
+
+
+        //  PAQUETE ...
+
+        // Lee la compostela del peregrino.
+        Paquete compostela = PaqueteDAO.leerPaquete( args[0] );
+
+        compostela.anadirBloque( bFirma );
+        compostela.anadirBloque( bDatos );
+        compostela.anadirBloque( bDesKUO );
+
+        PaqueteDAO.escribirPaquete( args[0], compostela );
+
 
     }
 

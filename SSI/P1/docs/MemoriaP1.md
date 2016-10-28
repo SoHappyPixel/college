@@ -1,24 +1,24 @@
-#SSI - CompostelaVirtual - Práctica1.
+# SSI - CompostelaVirtual - Práctica1.
 
-##Enunciado principal.
+## Enunciado principal.
 - Los **(P)eregrinos** podrán generar su *Compostela Virtual*.
 - Será sellada por los **(A)lbergues** por donde pase.
 - La **(O)ficina** podrá validar la *Compostela Virtual*.
   - Extraer los datos del peregrino.
   - Validar los *sellos* de los albergues.
 
-###Aclaraciones.
+### Aclaraciones.
 - Los 3 actores tendrán clave pública y privada.
 - Pre y Post encriptado los datos serán strings JSON.
 - Se omiten los mecanismos de distribución de clave pública.
 - Si en **O** falla alguna comprobación, se indicarán los sellos o información fallida; si todo es correcto se mostrará la totalidad de la *Compostela*.
 
-###Accesos.
+### Accesos.
 - **P** <- *Ku* de **O**.
 - **A** <- *Ku* de **O** y **P** (al sellar).
 - **O** <- *Ku* de **A's** y **P** (al validar).
 
-###Requisitos.
+### Requisitos.
 - Confidencialidad datos de **P**, sólo **O** podrá leerlos.
   - Confidencialidad datos de **A**, sólo legibles por **O**.
 - Que **O** tenga la seguridad de que el **P** que presenta la *Compostela* sea el **P** dueño de la *Compostela*.
@@ -28,7 +28,7 @@
 - Mecanismo de *Sellado de tiempo* para **A**.
 - *Minimo coste computacional* y uso de *asiméticos*.
 
-###Desarrollo.
+### Desarrollo.
 - **GenerarClaves <ID>** (Ya implementado).
   - Usado al inicio por los 3 actores.
   - Genera: ID.publica, ID.privada.
@@ -36,7 +36,7 @@
   - Usado por **P**. (<Ficheros_K> depende de la estrategia)
   - Solicita (como Strings): *Nombre, DNI, domicilio, fecha y lugar de creación, motivaciones.*
   - Genera <Nombre_Paquete>.paquete, empaquetando los datos solicitados (en un bloque dentro del paquete).
-- **SellarCompostela <P_Paquete> <ID_Albergue> <Ficheros_Ku>**
+- **SellarCompostela <P_Paquete> <ID_Albergue> <Ficheros_K>**
   - Usado por **A**.
   - Los bloques se bautizarán como <ID_Albergue_NombreBloque>
   - Al <P_Paquete> le añade el/los bloques del <ID_Albergue>.

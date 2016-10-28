@@ -17,8 +17,9 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class GenerarCompostela {
 
-    public static void main(String[] args) throws Exception {
-
+    // Recibe Nombre_Paquete, KR peregrino y KU oficina
+    public static void main(String[] args) throws Exception
+    {
         // SEGURIDAD ...
 
         // Carga el provider BC.
@@ -111,7 +112,7 @@ public class GenerarCompostela {
 
         // Crea bloque con datos resumidos encriptados con RSA.
         Bloque bFirma =
-            new Bloque( "Firma_Peregrino", cipherRSA.doFinal( sha.digest() ) );
+            new Bloque( "Peregrino_Firma", cipherRSA.doFinal( sha.digest() ) );
 
 
 
@@ -133,7 +134,7 @@ public class GenerarCompostela {
 
         // Crea bloque con los Datos encriptados con DES.
         Bloque bDatos =
-            new Bloque( "Datos_Peregrino", cipherDES.doFinal() );
+            new Bloque( "Peregrino_Datos", cipherDES.doFinal() );
 
 
 
@@ -151,7 +152,7 @@ public class GenerarCompostela {
 
         // Crea bloque con clave DES encriptada con RSA.
         Bloque bDesKUO =
-            new Bloque( "DES_RSA_Peregrino", cipherRSA.doFinal( keyDES ) );
+            new Bloque( "Peregrino_DESRSA", cipherRSA.doFinal( keyDES ) );
 
 
 
