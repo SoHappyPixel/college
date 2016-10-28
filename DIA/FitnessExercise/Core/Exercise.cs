@@ -40,13 +40,15 @@ namespace FitnessExercise.Core
 			Child.Add(new XAttribute("Minutes", this.Minutes));
 			Child.Add(new XAttribute("Date", this.Date.ToString()));
 
-			if (File.Exists("exercises.xml")) // Update..
+			// Update ...
+			if (File.Exists("exercises.xml"))
 			{
 				var Root = XElement.Load("exercises.xml");
 				Root.Add(Child);
 				Root.Save("exercises.xml");
-			} 
-			else // Creat new ...
+			}
+			// Creat new ...
+			else
 			{
 				var Root = new XElement("Exercises");
 				Root.Add(Child);
