@@ -1,0 +1,5 @@
+/Users/dcl/Projects/Ej4/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/dcl/Projects/Ej4/bin/Debug/Ej4.exe.mdb
+/Users/dcl/Projects/Ej4/bin/Debug/Ej4.exe
+/Users/dcl/Projects/Ej4/obj/x86/Debug/Ej4.exe
+/Users/dcl/Projects/Ej4/obj/x86/Debug/Ej4.exe.mdb

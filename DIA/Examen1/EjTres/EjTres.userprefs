@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{9CBDE131-624C-410F-8580-4FEDC669C2F3}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="Program.cs" Line="1" Column="1" />
+      <File FileName="Core/Punto2D.cs" Line="4" Column="18" />
+      <File FileName="Core/Punto3D_h.cs" Line="19" Column="4" />
+      <File FileName="Core/Punto3D_c.cs" Line="5" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.EjTres PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

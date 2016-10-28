@@ -1,0 +1,13 @@
+﻿<Properties StartupConfiguration="{0268601C-44A3-4B7A-9B4C-BE6224A008BA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Core/Exercise.cs">
+    <Files>
+      <File FileName="Core/Exercise.cs" Line="14" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.ItemProperties.Fitness PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
