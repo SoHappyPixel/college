@@ -29,7 +29,7 @@ public class GenerarCompostela {
         String KUO = args[2];
 
         //ENTRADA.
-        byte[] peregrino = this.getPeregrino();
+        byte[] peregrino = getPeregrino();
 
         //FIRMA.
         Bloque firma = bct.genFirma( "Peregrino_Firma", KRP, peregrino );
@@ -50,7 +50,7 @@ public class GenerarCompostela {
     }
 
     // Datos a cubrir por el Peregrino.
-    private byte[] getPeregrino()
+    private static byte[] getPeregrino()
     {
         Scanner in = new Scanner ( System.in );
         Map<String, String> out = new HashMap<String, String>();

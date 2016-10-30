@@ -30,7 +30,7 @@ public class SellarCompostela {
         String KUO = args[3];
 
         //ENTRADA.
-        byte[] albergue = this.getAlbergue();
+        byte[] albergue = getAlbergue();
 
         //FIRMA.
         Bloque firma = bct.genFirma( AID+"_Firma", KRA, albergue );
@@ -52,7 +52,7 @@ public class SellarCompostela {
     }
 
     // Datos a cubrir por el Albergue.
-    private byte[] getAlbergue()
+    private static byte[] getAlbergue()
     {
         Scanner in = new Scanner ( System.in );
         Map<String, String> out = new HashMap<String, String>();

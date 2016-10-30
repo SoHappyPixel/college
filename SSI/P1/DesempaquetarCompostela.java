@@ -15,7 +15,7 @@ import javax.crypto.interfaces.*;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 
-public class SellarCompostela {
+public class DesempaquetarCompostela {
 
     // Recibe: Compostela, Num_Albergues,
     // ID_Albergue(1), KU_ID_Albergue(1)
@@ -32,8 +32,8 @@ public class SellarCompostela {
         int KUA = 0;
         String PKG = args[0];
         String NUM = args[1];
-        String KUP = args[ args.length() - 1 ];
-        String KRO = args[ args.length() - 2 ];
+        String KUP = args[ args.length - 1 ];
+        String KRO = args[ args.length - 2 ];
 
         //COMPOSTELA: Lee el paquete Compostela.
         Paquete compostela = PaqueteDAO.leerPaquete( PKG );
@@ -49,7 +49,11 @@ public class SellarCompostela {
         byte[] oHash = bct.genHash( datos );
 
         // Verifica autenticidad del usuario.
-        if( ! oHash.equals(pHash) ) { //Haz cosas }
-        else{ System.out.println( "Mentiroso..." ) }
+        if( ! oHash.equals(pHash) )
+        {
+            //1.- Printa datos peregrino.
+            //2.- Repite el proceso con los albergues.
+        }
+        else{ System.out.println( "Mentiroso..." ); }
     }
 }
