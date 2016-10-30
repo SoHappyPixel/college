@@ -1,23 +1,14 @@
 import java.io.*;
 import java.util.*;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.Files;
-
-import java.security.*;
-import java.security.spec.*;
-
-import javax.crypto.*;
-import javax.crypto.spec.*;
-import javax.crypto.interfaces.*;
-
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-
-
-public class SellarCompostela {
-
-    // Recibe: Compostela, ID_Albergue, KR_Albergue, KU_Oficina.
+public class SellarCompostela
+{
+    /** RECIBE:
+     * 0: Compostela.
+     * 1: ID_Albergue.
+     * 2: KR_Albergue.
+     * 3: KU_Oficina.
+    */
     public static void main(String[] args) throws Exception
     {
         //SEGURIDAD.
@@ -30,46 +21,54 @@ public class SellarCompostela {
         String KUO = args[3];
 
         //ENTRADA.
+        System.out.println( "\nEntrada de datos del albergue." );
         byte[] albergue = getAlbergue();
 
         //FIRMA.
+        System.out.println( "\nGenerando firma del peregrino." );
         Bloque firma = bct.genFirma( AID+"_Firma", KRA, albergue );
 
         //DATOS. [0]=DatosDES, [1]=DES_RSA.
-        Bloque[] datos = bct.genDatos( AID+"_Datos", KUO, albergue );
+        System.out.println( "Generando datos y clave del albergue." );
+        Bloque[] datos = bct.genDatos(
+            AID+"_Datos", AID+"_DESRSA", KUO, albergue );
 
         //COMPOSTELA: Lee el paquete Compostela.
+        System.out.println( "\nObteniendo compostela del peregrino." );
         Paquete compostela = PaqueteDAO.leerPaquete( PKG );
 
         //COMPOSTELA: Añadir contenido al paquete.
+        System.out.println( "... Añadiendo firma del albergue." );
         compostela.anadirBloque( firma );
+        System.out.println( "... Añadiendo datos del albergue." );
         compostela.anadirBloque( datos[0] );
+        System.out.println( "... Añadiendo DESRSA del albergue." );
         compostela.anadirBloque( datos[1] );
 
         //COMPOSTELA: Exportar con el nombre arg[0].paquete
+        System.out.println( "\n!Guardando compostela actualizada¡" );
         PaqueteDAO.escribirPaquete( PKG, compostela );
-
     }
 
-    // Datos a cubrir por el Albergue.
+    //ENTRADA: Datos a cubrir por el Albergue.
     private static byte[] getAlbergue()
     {
         Scanner in = new Scanner ( System.in );
         Map<String, String> out = new HashMap<String, String>();
 
-        System.out.print("Nombre: ");
+        System.out.print("... Nombre: ");
         String nombre = in.nextLine ();
         out.put("nombre",nombre);
 
-        System.out.print("Fecha: ");
+        System.out.print("... Fecha: ");
         String fecha = in.nextLine ();
         out.put("fecha",fecha);
 
-        System.out.print("Lugar: ");
+        System.out.print("... Lugar: ");
         String lugar = in.nextLine ();
         out.put("lugar",lugar);
 
-        System.out.print("Incidencias: ");
+        System.out.print("... Incidencias: ");
         String incidencia = in.nextLine ();
         out.put("incidencia",incidencia);
 
