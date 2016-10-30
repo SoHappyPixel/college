@@ -20,167 +20,66 @@ public class GenerarCompostela {
     // Recibe Nombre_Paquete, KR peregrino y KU oficina
     public static void main(String[] args) throws Exception
     {
-        // SEGURIDAD ...
+        //SEGURIDAD.
+        BCTools bct = new BCTools();
 
-        // Carga el provider BC.
-        Security.addProvider(new BouncyCastleProvider());
+        //INICIALIZACION.
+        String PKG = args[0];
+        String KRP = args[1];
+        String KUO = args[2];
 
+        //ENTRADA.
+        byte[] peregrino = this.getPeregrino();
 
-        // Crea el generador RSA.
-        KeyFactory genRSA = KeyFactory.getInstance( "RSA", "BC" );
+        //FIRMA.
+        Bloque firma = bct.genFirma( "Peregrino_Firma", KRP, peregrino );
 
-        // Crea el cifrador RSA.
-        Cipher cipherRSA = Cipher.getInstance( "RSA", "BC" );
+        //DATOS. [0]=DatosDES, [1]=DES_RSA.
+        Bloque[] datos = bct.genDatos( "Peregrino_Datos", KUO, peregrino );
 
-
-        // Crea el generador DES.
-        KeyGenerator genDES = KeyGenerator.getInstance( "DES" );
-
-        // Lo establece a 56bits.
-        genDES.init( 56 );
-
-        // Crea el cifrador DES.
-        Cipher cipherDES = Cipher.getInstance( "DES/ECB/PKCS5Padding" );
-
-
-
-        // ENTRADA ...
-
-        byte[] peregrino;
-
-        // Solicitud de Datos.
-        try
-        (
-            // Flujo de entrada de datos.
-            Scanner in = new Scanner ( System.in );
-        )
-        {
-            // Map para JSON.
-            Map<String, String> out = new HashMap<String, String>();
-
-            System.out.print("Nombre: ");
-            String nombre = in.nextLine ();
-            out.put("nombre",nombre);
-
-            System.out.print("DNI: ");
-            String dni = in.nextLine ();
-            out.put("dni",dni);
-
-            System.out.print("Domicilio: ");
-            String domicilio = in.nextLine ();
-            out.put("domicilio",domicilio);
-
-            System.out.print("Fecha: ");
-            String fecha = in.nextLine ();
-            out.put("fecha",fecha);
-
-            System.out.print("Lugar: ");
-            String lugar = in.nextLine ();
-            out.put("lugar",lugar);
-
-            System.out.print("Motivacion: ");
-            String motivacion = in.nextLine ();
-            out.put("motivacion",motivacion);
-
-            // Covertir datos a JSON.
-            String outSTR = JSONUtils.map2json( out );
-
-            // Convertir String a bytes[].
-            peregrino = outSTR.getBytes();
-        }
-
-
-
-        // FIRMA_P ...
-
-        // Genera la spec de la clave privada.
-        PKCS8EncodedKeySpec specKRP = new PKCS8EncodedKeySpec( f2b(args[1]) );
-
-        // Genera KR del Peregrino en base a la spec.
-        PrivateKey KRP = genRSA.generatePrivate( specKRP );
-
-        // Inicia cifrador RSA a Encriptar con KR_P.
-        cipherRSA.init( Cipher.ENCRYPT_MODE, KRP );
-
-
-        // Instancia el generador de resumenes.
-        MessageDigest sha = MessageDigest.getInstance( "SHA" );
-
-        // Introduce los datos en la pila del SHA.
-        sha.update( peregrino, 0, peregrino.length );
-
-
-        // Crea bloque con datos resumidos encriptados con RSA.
-        Bloque bFirma =
-            new Bloque( "Peregrino_Firma", cipherRSA.doFinal( sha.digest() ) );
-
-
-
-        // DATOS_P ...
-
-        // Crea la clave secreta DES.
-        SecretKey skDES = genDES.generateKey();
-
-        // Guarda la clave como bytes.
-        byte[] keyDES = skDES.getEncoded();
-
-
-        // Inicia cifrador DES en Encriptado.
-        cipherDES.init( Cipher.ENCRYPT_MODE, skDES );
-
-        // Encripta con DES.
-        cipherDES.update( peregrino, 0, peregrino.length );
-
-
-        // Crea bloque con los Datos encriptados con DES.
-        Bloque bDatos =
-            new Bloque( "Peregrino_Datos", cipherDES.doFinal() );
-
-
-
-        // RSA_DES_P ...
-
-        // Genera spec de la clave publica.
-        X509EncodedKeySpec specKUO = new X509EncodedKeySpec( f2b(args[2]) );
-
-        // Genera KU de la oficina en base a la spec.
-        PublicKey KUO = genRSA.generatePublic( specKUO );
-
-        // Inicia el RSA a encriptar con KU_oficina.
-        cipherRSA.init( Cipher.ENCRYPT_MODE, KUO );
-
-
-        // Crea bloque con clave DES encriptada con RSA.
-        Bloque bDesKUO =
-            new Bloque( "Peregrino_DESRSA", cipherRSA.doFinal( keyDES ) );
-
-
-
-        // COMPOSTELA ...
-
-        // Crear el paquete Compostela.
+        //COMPOSTELA: Crear el paquete Compostela.
         Paquete compostela = new Paquete();
 
-        // Añadir contenido al paquete.
-        compostela.anadirBloque( bFirma );
-        compostela.anadirBloque( bDatos );
-        compostela.anadirBloque( bDesKUO );
+        //COMPOSTELA: Añadir contenido al paquete.
+        compostela.anadirBloque( firma );
+        compostela.anadirBloque( datos[0] );
+        compostela.anadirBloque( datos[1] );
 
-        // Exportar con el nombre arg[0].paquete
-        PaqueteDAO.escribirPaquete( args[0]+".paquete", compostela );
-
+        //COMPOSTELA: Exportar con el nombre arg[0].paquete
+        PaqueteDAO.escribirPaquete( PKG+".paquete", compostela );
     }
 
-
-    // Conversor de archivos a bytes.
-    private static byte[] f2b (String file) throws Exception
+    // Datos a cubrir por el Peregrino.
+    private byte[] getPeregrino()
     {
-        // Obten el path en base a la string.
-        Path path = Paths.get( file );
+        Scanner in = new Scanner ( System.in );
+        Map<String, String> out = new HashMap<String, String>();
 
-        // Lee en bytes en base al path.
-        return Files.readAllBytes( path );
+        System.out.print("Nombre: ");
+        String nombre = in.nextLine();
+        out.put("nombre",nombre);
+
+        System.out.print("DNI: ");
+        String dni = in.nextLine ();
+        out.put("dni",dni);
+
+        System.out.print("Domicilio: ");
+        String domicilio = in.nextLine ();
+        out.put("domicilio",domicilio);
+
+        System.out.print("Fecha: ");
+        String fecha = in.nextLine ();
+        out.put("fecha",fecha);
+
+        System.out.print("Lugar: ");
+        String lugar = in.nextLine ();
+        out.put("lugar",lugar);
+
+        System.out.print("Motivacion: ");
+        String motivacion = in.nextLine ();
+        out.put("motivacion",motivacion);
+
+        String outSTR = JSONUtils.map2json( out ); // Covertir datos a JSON.
+        return outSTR.getBytes(); // Convertir String a bytes[].
     }
-
-
 }
