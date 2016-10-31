@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en"> <!-- Html ini -->
 	<head> <!-- Head ini -->
 		<meta charset="utf-8">
@@ -22,56 +23,94 @@
 
 				<nav>
 					<ul class="nav nav-pills pull-right">
+
 						<!-- Customer Dropdown -->
 						<li role="presentation" class="dropdown">
-							<!-- menu name -->
-   							<a data-toggle="dropdown" role="button">
-								Customer <span class="caret"/>
-							</a>
-							<!-- menu content -->
-							<ul class="dropdown-menu">
-								<!-- add -->
-								<li role="presentation">
-									<a href="/newCustomer">Add a new.</a>
-								</li>
-								<!-- ... -->
-							</ul>
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-danger dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false"> Customer
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<!-- add -->
+									<li role="presentation">
+									  <a href="/newCustomer">Add a new.</a>
+									</li>
+									<!-- ... -->
+								</ul>
+							</div>
 						</li>
+
 						<!-- Product Dropdown -->
 						<li role="presentation" class="dropdown">
-							<!-- menu name -->
-							<a data-toggle="dropdown" role="button">
-								Products <span class="caret"/>
-							</a>
-							<!-- menu content -->
-							<ul class="dropdown-menu">
-								<!-- add -->
-								<li role="presentation">
-									<a href="/newProduct">Add a new.</a>
-								</li>
-								<!-- list -->
-								<li role="presentation">
-									<a href="/listProducts">List all.</a>
-								</li>
-								<!-- ... -->
-							</ul>
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-danger dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false"> Product
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<!-- add -->
+									<li role="presentation">
+									  <a href="/newProduct">Add a new.</a>
+									</li>
+									<!-- ... -->
+									<li role="presentation">
+									  <a href="/listProducts">List all.</a>
+									</li>
+								</ul>
+							</div>
 						</li>
-						<!-- Admin panel button -->
-						<li role="presentation">
-							<a href="/admin">Admin</a>
+
+						<!-- Users Dropdown -->
+						<li role="presentation" class="dropdown">
+							<div class="btn-group">
+								<button type="button"
+									class="btn btn-danger dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false"> Users
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<!-- add -->
+									<li role="presentation">
+									  <a href="/admin">Admin.</a>
+									</li>
+									<!-- ... -->
+									<li role="presentation">
+									  <a href="/viewProfile">Customer.</a>
+									</li>
+								</ul>
+							</div>
 						</li>
+
 					</ul>
 				</nav>
 
 				<!-- Brand -->
-				<a href="/">
-					<h3 class="text-muted">
-						<img alt="Brand" src="/static/img/fav.ico"
-						height="40" width="40">&nbsp;&nbsp;&nbsp;Sock Store
-					</h3>
-				</a>
+
+				<img alt="Brand" src="/static/img/fav.ico" height="40" width="40">
+					&nbsp;&nbsp;<a href="/"> <b>Sock Store</b> </a>
 
 			</div> <!-- Nav end -->
+
+			<div class="jumbotron">
+				<!-- Login -->
+				{% if user.username %}
+					<h3>&#9786; Hi there
+						<span class="label label-danger">
+							{{user.username}}
+						</span>&nbsp;.
+					</h3>
+				{% else %}
+					<input type="text" class="form-control" placeholder="J. Doe"/>
+					<input type="password" class="form-control" placeholder="*****"/>
+					<input type='submit' value='Send' class='btn btn-success btn-block'>
+				{% endif %}
+			</div>
 
 			<!-- Page Content -->
 			<div class="jumbotron"> {% block content %} {% endblock %} </div>

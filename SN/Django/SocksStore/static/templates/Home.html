@@ -1,10 +1,5 @@
 {% extends 'Base.html' %}
 
 {% block content %}
-    {% if user.username %}
-        <h1> Welcome {{ user.username }}! </h1>
-    {% else %}
-        <h1> Welcome anonymous user! </h1>
-        You need to <a href="/login/">login</a>
-    {% endif %}
+    <h1> {{welcome}} </h1>
 {% endblock %}
