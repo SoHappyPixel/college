@@ -1,7 +1,10 @@
 ﻿<Properties StartupConfiguration="{0268601C-44A3-4B7A-9B4C-BE6224A008BA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Core/Exercise.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="View/MainWindowCore.cs">
     <Files>
       <File FileName="Core/Exercise.cs" Line="14" Column="3" />
+      <File FileName="View/MainWindowCore.cs" Line="21" Column="13" />
+      <File FileName="View/MainWindowView.cs" Line="10" Column="33" />
+      <File FileName="View/Window.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

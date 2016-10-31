@@ -28,13 +28,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Core\" />
-    <Folder Include="UI\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Exercise.cs" />
-    <Compile Include="UI\MainWindowView.cs" />
-    <Compile Include="UI\MainWindowCore.cs" />
-    <Compile Include="UI\Window.cs" />
+    <Compile Include="View\MainWindowView.cs" />
+    <Compile Include="View\MainWindowCore.cs" />
+    <Compile Include="View\Window.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />

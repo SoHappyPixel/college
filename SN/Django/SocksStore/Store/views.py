@@ -3,15 +3,20 @@ from .forms import ProductForm
 from .forms import CustomerForm
 from django.shortcuts import render, HttpResponseRedirect
 
+# VIEW TOOLS.
+
+# ... check_form comprueba y guarda un
 def check_form( form, redirect_path ):
     if form.is_valid():
         instance = form.save(commit = False)
         print instance
         instance.save()
-        return HttpResponseRedirect( redirect_path )
+        HttpResponseRedirect( redirect_path )
 
 
-# home is the Index view.
+# MAIN VIEWS.
+
+# ... home is the Index view.
 def home(request):
     welcome = 'A new reality for your feet !'
     context = { 'welcome': welcome }

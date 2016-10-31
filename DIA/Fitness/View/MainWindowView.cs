@@ -12,6 +12,20 @@ namespace Fitness.View
 
 		public MainWindow() : base(Gtk.WindowType.Toplevel) { this.Build(); }
 
+		[GLib.ConnectBeforeAttribute]
+		protected void OnClick(object sender, Gtk.ButtonPressEventArgs e)
+		{
+			if (e.Event.Button == 3) /* right click */
+			{
+				Gtk.Menu m = new Gtk.Menu();
+				Gtk.MenuItem deleteItem = new Gtk.MenuItem("Delete this item");
+				deleteItem.ButtonPressEvent += (o, args) => this.DeleteEXE();
+				m.Add(deleteItem);
+				m.ShowAll();
+				m.Popup();
+			}
+		}
+
 
 		private void Build()
 		{
@@ -28,6 +42,7 @@ namespace Fitness.View
 
 			// ... ... ... Tree model
 			ExercisesModel = new Gtk.ListStore(typeof(string), typeof(string), typeof(string), typeof(string));
+			Exercises.ButtonPressEvent += new Gtk.ButtonPressEventHandler(OnClick);
 
 			// ... ... Entrys
 			this.EntryName = new Gtk.Entry("");
@@ -48,7 +63,7 @@ namespace Fitness.View
 
 			// ... ... Buttons
 			var SaveButton = new Gtk.Button("SAVE");
-			SaveButton.Clicked += (sender, e) => this.SaveEXE();
+			SaveButton.Clicked += (o, args) => this.SaveEXE();
 
 			// ... ... Main box
 			var vbMain = new Gtk.VBox(false, 5);

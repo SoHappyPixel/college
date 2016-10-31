@@ -10,14 +10,8 @@ urlpatterns = patterns('',
     url(r'^$', 'Store.views.home', name='home'),
 
     url(r'^newCustomer/', 'Store.views.newCustomer', name='newCustomer'),
+    # url(r'^profileCustomer/', 'Store.views.profileCustomer', name='profileCustomer'),
 
     url(r'^newProduct/', 'Store.views.newProduct', name='newProduct'),
     url(r'^listProducts/', 'Store.views.listProducts', name='listProducts'),
 )
-
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL,
-            document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL,
-            document_root=settings.MEDIA_ROOT)

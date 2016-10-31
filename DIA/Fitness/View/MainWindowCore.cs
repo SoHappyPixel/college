@@ -12,6 +12,22 @@ namespace Fitness.View
 	{
 		private void OnClose() => Gtk.Application.Quit();
 
+
+
+		protected void DeleteEXE(object sender, Gtk.ButtonPressEventArgs e)
+		{
+			// !!! Que borre de la list<exercises>, actualice el XML y actualice la vista.
+
+			//var Selection = this.Exercises.Selection.GetSelectedRows();
+
+			//foreach (var s in Selection)
+			//{
+			//	Gtk.TreeIter r;
+			//	this.ExercisesModel.GetIter(out r, s);
+			//	this.ExercisesModel.Remove(ref r);
+			//}
+		}
+
 		private void FillTreeView()
 		{
 			var LoadedExercises = ListEXE();
@@ -21,6 +37,7 @@ namespace Fitness.View
 					le.Name, le.Meters.ToString(), le.Minutes.ToString(), le.Date.ToString());
 			}
 		}
+
 
 		private List<Exercise> ListEXE()
 		{
@@ -45,6 +62,7 @@ namespace Fitness.View
 			return fromXML;
 		}
 
+
 		private void SaveEXE()
 		{
 			var Name = this.EntryName.Text;
@@ -55,6 +73,7 @@ namespace Fitness.View
 			e.Save2XML();
 			this.FillTreeView();
 		}
+
 
 		private void EditEXE() { }
 		private void DeleteEXE() { }

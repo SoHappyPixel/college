@@ -1,0 +1,22 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2> List Products </h2> <br>
+    <table class="table">
+        <tr>
+            <td> <h3> Brand </h3> </td>
+            <td> <h3> Cost </h3> </td>
+            <td> <h3> Timestamp </h3> </td>
+        </tr>
+        {% if product_list %}
+        {% for p in product_list %}
+        <tr>
+            <td> {{ p.brand }}</td>
+            <td> {{ p.cost }} </td>
+            <td> {{ p.timestamp }} </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr> <h2> No prodcuts here! </h2> </tr>
+        {% endif %}
+    </table>
+{% endblock %}

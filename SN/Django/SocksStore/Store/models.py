@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.encoding import smart_unicode
 
 
 class Customer(models.Model):
@@ -14,7 +13,7 @@ class Customer(models.Model):
     updated = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __unicode__(self) :
-        return smart_unicode(self.email)
+        return self.email
 
 
 class Product(models.Model):
@@ -29,4 +28,4 @@ class Product(models.Model):
     updated = models.DateTimeField(auto_now_add=True, auto_now=False)
 
     def __unicode__(self) :
-        return smart_unicode( self.brand + self.printed )
+        return self.brand + self.printed
