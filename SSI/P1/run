@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Recompilar todo.
+javac -cp ".:bc.jar" *.java
+
+# Generar las claves.
+java -cp ".:bc.jar" GenerarClaves "Dani"
+java -cp ".:bc.jar" GenerarClaves "Alb1"
+java -cp ".:bc.jar" GenerarClaves "Alb2"
+java -cp ".:bc.jar" GenerarClaves "Ofi"
+
+# Generar compostela del peregrino.
+echo -e "\n\nPEREGRINO! - Ejecutando: 'GenerarCompostela'"
+java -cp ".:bc.jar" GenerarCompostela "DCL" Dani.privada Ofi.publica
+
+# Sellar compostela en diferentes albergues.
+echo -e "\n\nALBERGUE1! - Ejecutando: 'SellarCompostela'"
+java -cp ".:bc.jar" SellarCompostela DCL.paquete "Alb1" Alb1.privada Ofi.publica
+echo -e "\n\nALBERGUE2! - Ejecutando: 'SellarCompostela'"
+java -cp ".:bc.jar" SellarCompostela DCL.paquete "Alb2" Alb2.privada Ofi.publica
+
+# Verificar la validez de la compostela en la oficina.
+echo -e "\n\nOFICINA! - Ejecutando: 'DesempaquetarCompostela'"
+java -cp ".:bc.jar" DesempaquetarCompostela DCL.paquete 2 "Alb1" Alb1.publica "Alb2" Alb2.publica Dani.publica Ofi.privada
+
+# Borrar todas las claves y ejecutables.
+rm -f *.privada *.publica *.class

@@ -1,5 +1,0 @@
-javac -cp ".:bc.jar" *.java
-java -cp ".:bc.jar" GenerarCompostela "DCL" keys/P.privada keys/O.publica
-java -cp ".:bc.jar" SellarCompostela DCL.paquete "A1" keys/A1.privada keys/O.publica
-java -cp ".:bc.jar" SellarCompostela DCL.paquete "A2" keys/A2.privada keys/O.publica
-java -cp ".:bc.jar" DesempaquetarCompostela DCL.paquete 2 "A1" keys/A1.publica "A2" keys/A2.publica keys/P.publica keys/O.privada

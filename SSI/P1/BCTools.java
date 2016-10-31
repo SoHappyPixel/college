@@ -86,7 +86,7 @@ public class BCTools
     public static byte[] getDatos(
         Paquete pack, String block, byte[] k ) throws Exception
     {
-        byte[] eData = pack.getContenidoBloque( block );
+        byte[] eData = pack.getContenidoBloque( block ); //Posible motivo de que no se printe el JSON original?
         SecretKey secretKey = new SecretKeySpec(k, 0, k.length, "DES");
         cipherDES.init( Cipher.DECRYPT_MODE, secretKey );
         cipherDES.update( eData, 0, eData.length);

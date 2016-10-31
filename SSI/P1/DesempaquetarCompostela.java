@@ -22,8 +22,6 @@ public class DesempaquetarCompostela
         String KUP = args[ args.length - 2 ];
         String KRO = args[ args.length - 1 ];
 
-        System.out.println( KUP+"\n"+KRO+"\n" ); //DEBUG
-
         //COMPOSTELA: Lee el paquete Compostela.
         System.out.println( "\nPROCESANDO LA COMPOSTELA..." );
         Paquete compostela = PaqueteDAO.leerPaquete( PKG );
@@ -64,7 +62,10 @@ public class DesempaquetarCompostela
         byte[] oHash = bct.genHash( datos );
 
         // Verificacion de autenticidad.
-        if( ! oHash.equals( pHash ) ){ System.out.println( datos ); }
+        if( ! oHash.equals( pHash ) )
+        {
+            System.out.write(datos, 0, datos.length);
+        }
         else{ System.out.println( "Mentiroso..." ); }
     }
 }
