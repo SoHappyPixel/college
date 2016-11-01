@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+from django.urls import reverse
 from django.db import models
 
 class Product(models.Model):
@@ -12,5 +12,5 @@ class Product(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=True, auto_now=False)
 
-    def __unicode__(self) :
-        return self.brand + self.printed
+    def get_absolute_url(self):
+        return reverse('product-detail', kwargs={'pk': self.pk})

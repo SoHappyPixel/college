@@ -1,20 +1,24 @@
 import os
-DEBUG = True
 
+# Internationalization.
 USE_TZ = True
 USE_I18N = True
 USE_L10N = True
 TIME_ZONE = 'UTC'
 LANGUAGE_CODE = 'en-us'
 
-ALLOWED_HOSTS = []
-WSGI_APPLICATION = 'gSocks.wsgi.application'
-SECRET_KEY = '$rc2#ip(as7fin)#&dq3j*nv6n!ng_nj*41v(_mz-fap*0#ew_'
-
+# Folders.
 STATIC_URL = '/static/'
-ROOT_URLCONF = 'gSocks.urls'
+ROOT_URLCONF = 'website.urls'
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Essential stuff
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'django.contrib.admin',
@@ -24,7 +28,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -34,7 +37,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -50,25 +52,19 @@ TEMPLATES = [
         },
     },
 ]
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    { 'NAME': 'django.contrib.auth.password_validation.\
+        UserAttributeSimilarityValidator', },
+    { 'NAME': 'django.contrib.auth.password_validation.\
+        MinimumLengthValidator', },
+    { 'NAME': 'django.contrib.auth.password_validation.\
+        CommonPasswordValidator', },
+    { 'NAME': 'django.contrib.auth.password_validation.\
+        NumericPasswordValidator', },
 ]
+
+# Advanced stuff.
+DEBUG = True
+ALLOWED_HOSTS = []
+WSGI_APPLICATION = 'website.wsgi.application'
+SECRET_KEY = '$rc2#ip(as7fin)#&dq3j*nv6n!ng_nj*41v(_mz-fap*0#ew_'
