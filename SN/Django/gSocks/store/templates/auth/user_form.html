@@ -1,9 +1,0 @@
-{% extends 'store/base.html' %}
-{% block content %}
-<h2>{{title}}</h2><hr>
-<form method="post" action="."> {% csrf_token %}
-    <p><label for="id_username">Username:</label> {{ form.username }}</p>
-    <p><label for="id_password">Password:</label> {{ form.password }}</p><hr>
-    <input class="btn btn-success btn-block" type="submit" value="Register" />
-</form>
-{% endblock %}
