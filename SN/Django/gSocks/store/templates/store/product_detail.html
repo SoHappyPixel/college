@@ -1,0 +1,26 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2>{{title}}</h2><hr>
+    <table class="table">
+        <tr>
+            <td> <h4> Brand </h4>  </td>
+            <td> <h4> Thickness </h4> </td>
+            <td> <h4> Color </h4> </td>
+            <td> <h4> Height </h4> </td>
+            <td> <h4> Cost </h4> </td>
+            <td> <h4> Printed </h4> </td>
+        </tr>
+        <tr>
+            <td> {{ product.brand }} </td>
+            <td> {{ product.thickness }} </td>
+            <td> {{ product.color }} </td>
+            <td> {{ product.height }} </td>
+            <td> {{ product.cost }} </td>
+            <td> {{ product.printed }} </td>
+        </tr>
+    </table>
+    {% if user.is_superuser %}
+    <hr><a class="btn btn-success btn-block" href="{% url 'store:product_update' product.id %}"> Modify </a>
+    <hr><a class="btn btn-warning btn-block" href="{% url 'store:product_delete' product.id %}"> Delete </a><hr>
+    {% endif %}
+{% endblock %}

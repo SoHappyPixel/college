@@ -1,0 +1,10 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<h2>{{title}}</h2><hr>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-warning" type="submit" value="DELETE" />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-primary" href="{% url 'store:product_list' %}"> CANCEL </a>
+</form>
+{% endblock content %}

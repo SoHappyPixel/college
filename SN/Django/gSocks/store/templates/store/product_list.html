@@ -1,22 +1,47 @@
 {% extends 'store/base.html' %}
+
 {% block content %}
-<h2> List Products </h2> <br>
-    <table class="table">
-        <tr>
-            <td> <h3> Brand </h3> </td>
-            <td> <h3> Cost </h3> </td>
-            <td> <h3> Timestamp </h3> </td>
-        </tr>
-        {% if product_list %}
-        {% for p in product_list %}
-        <tr>
-            <td> {{ p.brand }} </td>
-            <td> {{ p.cost }} </td>
-            <td> {{ p.timestamp }} </td>
-        </tr>
-        {% endfor %}
-        {% else %}
-        <tr> <h2> No prodcuts here! </h2> </tr>
-        {% endif %}
-    </table>
+
+    {% if page_obj %}
+
+        <h2>{{title}}</h2><hr>
+        <table class="table">
+            <tr>
+                <td> <h3> Brand </h3> </td>
+                <td> <h3> Printed </h3> </td>
+                <td> <h3> Color </h3> </td>
+                <td> <h3> Cost </h3> </td>
+            </tr>
+
+            {% for product in page_obj %}
+            <tr>
+                <td> <a href="{% url 'store:product_detail' product.id %}"> {{ product.brand }} </a> </td>
+                <td> {{ product.printed }} </td>
+                <td> {{ product.color }} </td>
+                <td> {{ product.cost }} € </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a class="btn" href="?page={{ page_obj.previous_page_number }}">&#8592;</a>
+                {% endif %}
+
+                <span class="current">
+                    &nbsp;&nbsp;{{ page_obj.number }}&nbsp;&nbsp;of&nbsp;&nbsp;{{ paginator.num_pages }}&nbsp;&nbsp;
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a class="btn" href="?page={{ page_obj.next_page_number }}">&#8594;</a>
+                {% endif %}
+            </span>
+        </div>
+
+    {% else %}
+        <h2> No products here! </h2>
+    {% endif %}
+
 {% endblock %}
