@@ -9,7 +9,7 @@ namespace Fitness.Core
 	{
 		// VARS ...
 		private string name;
-		private float meters;
+		private short meters;
 		private short minutes;
 		private DateTime date;
 
@@ -20,7 +20,7 @@ namespace Fitness.Core
 			set { this.name = value; }
 		}
 
-		public float Meters
+		public short Meters
 		{
 			get { return meters; }
 			set { this.meters = value; }
@@ -42,16 +42,16 @@ namespace Fitness.Core
 		// CONSTRUCTOR ...
 
 		// ... Para creación inicial.
-		public Exercise(string Name, float Meters, short Minutes)
+		public Exercise(string name, short meters, short minutes)
 		{
-			this.Name = Name;
-			this.Meters = Meters;
-			this.Minutes = Minutes;
+			this.Name = name;
+			this.Meters = meters;
+			this.Minutes = minutes;
 			this.Date = DateTime.Now;
 		}
 
 		// ... Para utilizar en la carga del XML.
-		public Exercise(string name, float meters, short minutes, DateTime date)
+		public Exercise(string name, short meters, short minutes, DateTime date)
 		{
 			this.Name = name;
 			this.Meters = meters;

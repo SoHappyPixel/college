@@ -55,8 +55,7 @@ public class BCTools
         byte[] bytesDES = secretDES.getEncoded();
 
         cipherDES.init( Cipher.ENCRYPT_MODE, secretDES );
-        cipherDES.update( data, 0, data.length );
-        toret[0] = new Bloque( block1, cipherDES.doFinal() );
+        toret[0] = new Bloque( block1, cipherDES.doFinal(data) );
 
         cipherRSA.init( Cipher.ENCRYPT_MODE, getKU( getFileInfo( ku ) ) );
         toret[1] = new Bloque( block2, cipherRSA.doFinal( bytesDES ) );
@@ -89,8 +88,7 @@ public class BCTools
         byte[] eData = pack.getContenidoBloque( block ); //Posible motivo de que no se printe el JSON original?
         SecretKey secretKey = new SecretKeySpec(k, 0, k.length, "DES");
         cipherDES.init( Cipher.DECRYPT_MODE, secretKey );
-        cipherDES.update( eData, 0, eData.length);
-        return cipherDES.doFinal();
+        return cipherDES.doFinal(eData);
     }
 
     //RECOLECTOR: DESRSA de alguien concreto en una compostela dada.

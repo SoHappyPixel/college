@@ -13,20 +13,56 @@ namespace Fitness.View
 
 		private Gtk.VBox ViewBox = new Gtk.VBox(false, 5);
 		private Gtk.VBox TreeAddView = new Gtk.VBox(false, 5);
-		//private Gtk.VBox TreeModView = new Gtk.VBox(false, 5);
 
-		public MainWindow() : base(Gtk.WindowType.Toplevel) { this.Build(); this.OnInit(); }
+		public MainWindow() : base(Gtk.WindowType.Toplevel)
+		{
+			Build();
+			OnInit();
+		}
+
+		// Cerrar la aplicacion.
+		private void Quit() => Gtk.Application.Quit();
+
+		// Limpiar TreeView.
+		private void ClearTreeModel()
+		{
+			ExeModel = new Gtk.ListStore(typeof(string), typeof(string), typeof(string), typeof(string));
+			Exercises.Model = ExeModel;
+		}
+
+		// Controla cuando se hace doble-click en un ejercicio.
+		[GLib.ConnectBeforeAttribute]
+		protected void OnRight(object sender, Gtk.ButtonPressEventArgs e)
+		{
+			if(e.Event.Button == 3) // Botón derecho.
+			{
+				Gtk.TreePath RowPath;
+				if (Exercises.GetPathAtPos(Convert.ToInt32(e.Event.X),
+											Convert.ToInt32(e.Event.Y),
+											out RowPath))
+				{
+					int ActiveRow = RowPath.Indices[0];
+					Gtk.Menu m = new Gtk.Menu();
+					Gtk.MenuItem DeleteExercise = new Gtk.MenuItem("Delete exercise");
+					DeleteExercise.ButtonPressEvent += (o, a) => OnDelete(ActiveRow);
+					m.Add(DeleteExercise);
+					m.ShowAll();
+					m.Popup();
+
+				}
+			}
+		}
 
 		private void Build()
 		{
 			// ----------------------TAMANHO------------------------
 
-			this.SetGeometryHints(
+			SetGeometryHints(
 				this, new Gdk.Geometry() { MinWidth = 300, MinHeight = 300 }, Gdk.WindowHints.MinSize);
 
 			// ----------------------EVENTOS------------------------
 
-			this.DeleteEvent += (o, args) => this.OnClose();
+			DeleteEvent += (o, args) => OnClose();
 
 			// ------------------INICIALIZACION---------------------
 
@@ -35,10 +71,21 @@ namespace Fitness.View
 			SectionTitle.UseMarkup = true;
 
 			// Tree.
-			this.Exercises = new Gtk.TreeView();
+			Exercises = new Gtk.TreeView();
+			// Tree Colum.
+			var NameRender = new Gtk.CellRendererText();
+			NameRender.Editable = true;
+			NameRender.Edited += NameRenderEdit;
+			var MetersRender = new Gtk.CellRendererText();
+			MetersRender.Editable = true;
+			MetersRender.Edited += MetersRenderEdit;
+			var MinutesRender = new Gtk.CellRendererText();
+			MinutesRender.Editable = true;
+			MinutesRender.Edited += MinutesRenderEdit;
+			var DateRender = new Gtk.CellRendererText();
 			// Tree Model.
-			this.ExeModel = new Gtk.ListStore(typeof(string), typeof(string), typeof(string), typeof(string));
-			this.Exercises.RowActivated += new Gtk.RowActivatedHandler(this.OnSelect);
+			ExeModel = new Gtk.ListStore(typeof(string), typeof(string), typeof(string), typeof(string));
+			Exercises.ButtonPressEvent += new Gtk.ButtonPressEventHandler(OnRight);
 
 			// Boxes Creation.
 			var TreeScroll = new Gtk.ScrolledWindow();
@@ -47,22 +94,22 @@ namespace Fitness.View
 			// -------------------COMPOSICION------------------------
 
 			// Tree.
-			this.Exercises.Model = ExeModel;
+			Exercises.Model = ExeModel;
 			// Tree Columns Append.
-			this.Exercises.AppendColumn("Name", new Gtk.CellRendererText(), "text", 0);
-			this.Exercises.AppendColumn("Meters", new Gtk.CellRendererText(), "text", 1);
-			this.Exercises.AppendColumn("Minutes", new Gtk.CellRendererText(), "text", 2);
-			this.Exercises.AppendColumn("Date", new Gtk.CellRendererText(), "text", 3);
+			Exercises.AppendColumn("Name", NameRender, "text", 0);
+			Exercises.AppendColumn("Meters", MetersRender, "text", 1);
+			Exercises.AppendColumn("Minutes", MinutesRender, "text", 2);
+			Exercises.AppendColumn("Date", DateRender, "text", 3);
 
 			// Fill Boxes.
-			TreeScroll.Add(this.Exercises);
+			TreeScroll.Add(Exercises);
 			TreeSpace.Add(TreeScroll);
 
 			ViewBox.Add(SectionTitle);
 			ViewBox.Add(TreeSpace);
 
-			this.Add(ViewBox);
-			this.BuildAddView();
+			Add(ViewBox);
+			BuildAddView();
 		}
 
 		private void BuildAddView()
@@ -72,14 +119,14 @@ namespace Fitness.View
 			// ------------------INICIALIZACION---------------------
 
 			// Entrys.
-			this.EntryName = new Gtk.Entry("");
-			this.EntryMeters = new Gtk.Entry("");
-			this.EntryMinutes = new Gtk.Entry("");
+			EntryName = new Gtk.Entry("");
+			EntryMeters = new Gtk.Entry("");
+			EntryMinutes = new Gtk.Entry("");
 
 			// Entrys Properties.
-			this.EntryName.Alignment = 0.5f;
-			this.EntryMeters.Alignment = 0.5f;
-			this.EntryMinutes.Alignment = 0.5f;
+			EntryName.Alignment = 0.5f;
+			EntryMeters.Alignment = 0.5f;
+			EntryMinutes.Alignment = 0.5f;
 
 			// Labels.
 			var NameLabel = new Gtk.Label("Name:");
@@ -88,7 +135,7 @@ namespace Fitness.View
 
 			// Buttons.
 			var SaveButton = new Gtk.Button("ADD");
-			SaveButton.Clicked += (o, args) => this.OnAdd();
+			SaveButton.Clicked += (o, args) => OnAdd();
 
 			// VBoxs.
 			var ItemNameBlock = new Gtk.HBox(false, 5);
@@ -103,13 +150,13 @@ namespace Fitness.View
 
 			// Fill vboxs.
 			ItemNameBlock.Add(NameLabel);
-			ItemNameBlock.Add(this.EntryName);
+			ItemNameBlock.Add(EntryName);
 
 			ItemMetersBlock.Add(MetersLabel);
-			ItemMetersBlock.Add(this.EntryMeters);
+			ItemMetersBlock.Add(EntryMeters);
 
 			ItemMinutesBlock.Add(MinutesLabel);
-			ItemMinutesBlock.Add(this.EntryMinutes);
+			ItemMinutesBlock.Add(EntryMinutes);
 
 			// Fill hboxs.
 			NewItemSpace.Add(ItemNameBlock);
@@ -124,65 +171,5 @@ namespace Fitness.View
 			// Add main box to the window
 			ViewBox.Add(TreeAddView);
 		}
-
-		//private void BuildModView(int ActiveRow)
-		//{
-		//	ViewBox.Remove(TreeAddView);
-
-		//	// ------------------INICIALIZACION---------------------
-
-		//	// Entrys.
-		//	this.EntryName = new Gtk.Entry("adf");
-		//	this.EntryMeters = new Gtk.Entry("");
-		//	this.EntryMinutes = new Gtk.Entry("");
-
-		//	// Entrys Properties.
-		//	this.EntryName.Alignment = 0.5f;
-		//	this.EntryMeters.Alignment = 0.5f;
-		//	this.EntryMinutes.Alignment = 0.5f;
-
-		//	// Labels.
-		//	var NameLabel = new Gtk.Label("Nome:");
-		//	var MetersLabel = new Gtk.Label("Meters:");
-		//	var MinutesLabel = new Gtk.Label("Minutes:");
-
-		//	// Buttons.
-		//	var SaveButton = new Gtk.Button("ADD");
-		//	SaveButton.Clicked += (o, args) => this.OnAdd();
-
-		//	// VBoxs.
-		//	var ItemNameBlock = new Gtk.HBox(false, 5);
-		//	var ItemMetersBlock = new Gtk.HBox(false, 5);
-		//	var ItemMinutesBlock = new Gtk.HBox(false, 5);
-
-		//	// HBoxs.
-		//	var NewItemSpace = new Gtk.VBox(false, 5);
-		//	var ButtonSaveSpace = new Gtk.HBox(false, 5);
-
-		//	// -------------------COMPOSICION------------------------
-
-		//	// Fill vboxs.
-		//	ItemNameBlock.Add(NameLabel);
-		//	ItemNameBlock.Add(this.EntryName);
-
-		//	ItemMetersBlock.Add(MetersLabel);
-		//	ItemMetersBlock.Add(this.EntryMeters);
-
-		//	ItemMinutesBlock.Add(MinutesLabel);
-		//	ItemMinutesBlock.Add(this.EntryMinutes);
-
-		//	// Fill hboxs.
-		//	NewItemSpace.Add(ItemNameBlock);
-		//	NewItemSpace.Add(ItemMetersBlock);
-		//	NewItemSpace.Add(ItemMinutesBlock);
-		//	ButtonSaveSpace.Add(SaveButton);
-
-		//	// Compose main vBox.
-		//	TreeModView.PackStart(NewItemSpace, true, true, 5);
-		//	TreeModView.PackStart(ButtonSaveSpace, true, true, 5);
-
-		//	// Add main box to the window
-		//	ViewBox.PackStart(TreeModView, false, false, 5);
-		//}
 	}
 }
