@@ -1,0 +1,40 @@
+CREATE TABLE bank (
+    bank_id integer NOT NULL,
+    bank_name text,
+    bank_adress text,
+    PRIMARY KEY(bank_id)
+);
+CREATE TABLE branch (
+    branch_id integer NOT NULL,
+    bank_fk integer REFERENCES bank(bank_id),
+    branch_adress text,
+    branch_tlf numeric,
+    PRIMARY KEY(branch_id, bank_fk)
+);
+CREATE TABLE customer (
+    customer_id integer NOT NULL,
+    customer_ssn numeric UNIQUE NOT NULL,
+    customer_name text,
+    customer_adress text,
+    PRIMARY KEY(customer_id)
+);
+CREATE TYPE account_currency_enum AS ENUM ('€', '$', '£');
+CREATE TYPE account_type_enum AS ENUM ('standard', 'plus', 'premium');
+CREATE TABLE account (
+    customer_id integer REFERENCES customer(customer_id),
+    account_id integer NOT NULL,
+    account_type account_type_enum NOT NULL,
+    account_currency account_currency_enum NOT NULL,
+    balance numeric,
+    PRIMARY KEY(account_id),
+    UNIQUE(customer_id, account_id)
+);
+CREATE TYPE transaction_type_enum AS ENUM (
+    'purchase', 'loan', 'montage', 'bank', 'credit', 'debit');
+CREATE TABLE transaction (
+    account_fk integer REFERENCES account(account_id),
+    transaction_date timestamp WITH time zone,
+    transaction_type transaction_type_enum,
+    amount numeric,
+    PRIMARY KEY(account_fk, transaction_date)
+);

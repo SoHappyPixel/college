@@ -1,0 +1,3 @@
+dropdb cars
+createdb cars
+psql -d cars -f cars.sql
