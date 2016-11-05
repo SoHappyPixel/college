@@ -113,6 +113,8 @@ namespace Fitness.View
 		// Carga la Lista en el Model del TreeView.
 		private void ListToModel()
 		{
+			Predicate<Exercise> pe = ;
+			XmlDAO.Find()
 			XmlDAO.ForEach(le => ExeModel.AppendValues(
 				le.Name, le.Meters.ToString(), le.Minutes.ToString(), le.Date.ToString()));
 		}
@@ -120,10 +122,12 @@ namespace Fitness.View
 		// Cargar del XML a la Lista.
 		private void XmlToList()
 		{
+			var CalendarDate = DateTime.Now;
 			if (File.Exists(Core.Settings.XML))
 			{
 				var Root = XElement.Load(Core.Settings.XML);
-				var RootChilds = from e in Root.Elements("Exercise") select e.Attributes();
+				var RootChilds = 
+					from e in Root.Elements("Exercise") select e.Attributes();
 
 				foreach (var rc in RootChilds)
 				{
