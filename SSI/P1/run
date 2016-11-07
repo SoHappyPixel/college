@@ -24,4 +24,4 @@ echo -e "\n\nOFICINA! - Ejecutando: 'DesempaquetarCompostela'"
 java -cp ".:bc.jar" DesempaquetarCompostela DCL.paquete 2 "Alb1" Alb1.publica "Alb2" Alb2.publica Dani.publica Ofi.privada
 
 # Borrar todas las claves y ejecutables.
-rm -f *.privada *.publica *.class
+rm -f *.privada *.publica *.class *.paquete
