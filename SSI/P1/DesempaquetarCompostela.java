@@ -62,9 +62,12 @@ public class DesempaquetarCompostela
         byte[] oHash = bct.genHash( datos );
 
         // Verificacion de autenticidad.
-        if( ! oHash.equals( pHash ) )
+        if( Arrays.equals(oHash,pHash) )
         {
+            System.out.println();
+            System.out.print("DATOS DEL "+id+": ");
             System.out.write(datos, 0, datos.length);
+            System.out.println();
         }
         else{ System.out.println( "Mentiroso..." ); }
     }

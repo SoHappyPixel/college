@@ -1,6 +1,8 @@
 # SSI - CompostelaVirtual - Práctica1.
 
-> Daniel Camba Lamas
+> **Daniel Camba Lamas.**
+>
+> En colaboración con: Diego Casanova José y Román Puga Quintairos
 
 ## Descripción breve de la práctica.
 
@@ -99,8 +101,6 @@ public static PublicKey getKU( byte[] k )
 // Convierte la string caputrada por parametro en un archivo y éste a bytes.
 public static byte[] getFileInfo(String file)
 ```
-
-
 
 ### *GenerarCompostela*.
 
