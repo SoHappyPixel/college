@@ -1,40 +1,20 @@
 # Seminario 5.
 
-> **Por G13:**
->
-> Daniel Camba Lamas.
->
-> Diego Casanova José.
->
-> David Coello Pulido.
->
-> Candida Rodriguez Miguez.
-
-
-
 ## a. Código.
 
 `EI 15/16 - 028`
-
-
 
 ## b. Título.
 
 **Herramienta de modelado de comportamiento en sistemas espaciales.**
 
-
-
 ## c. Tipo de proyecto.
 
 Investigación y desarrollo.
 
-
-
 ## d. Funcionalidad básica del sistema desarrollado.
 
 El objetivo principal de este proyecto es el desarrollo de un entorno de simulación que se ejecute en web, donde se podrá comprobar el comportamiento de los individuos "rivales" en el contexto que representa el sistema. El  comportamiento de estos individuos no evalua la interacción poblacional.
-
-
 
 ## e. Tecnologías empleadas.
 
@@ -54,8 +34,6 @@ Aplicación distribuida como clientes-servidor.
 Para el desarrollo de este proyecto se ha escogido una metodología iterativa e incremental debido a que los proyectos de investigación acostumbran a sufrir bastantes cambios.
 ### CICLO DE VIDA.
 Se distingue entre el ciclo de vida incremental y el ciclo de vida iterativo. En el <u>primero</u>, se realizar un desarrollo por partes del producto software, para <u>después</u> integrarlas a medida que se completan.
-
-
 
 ## g. Descripción de la documentación. (Estructura)
 
@@ -89,8 +67,6 @@ Se distingue entre el ciclo de vida incremental y el ciclo de vida iterativo. En
 - Libros.
 - Documentaciones técnicas.
 - Otras referencias.
-
-
 
 
 ## h. Comentarios del trabajo. 
