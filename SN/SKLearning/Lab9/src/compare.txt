@@ -1,0 +1,6 @@
+        precision   recall  f1-score   support
+KNN        0.97      0.97      0.97       150
+SVM        0.99      0.99      0.99       150
+DTREE      1.00      1.00      1.00       150
+RAND       1.00      1.00      1.00       150
+MLP        0.98      0.97      0.97       150

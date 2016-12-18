@@ -1,0 +1,419 @@
+PassengerId,Survived
+"Kelly, Mr. James",570
+"Wilkes, Mrs. James (Ellen Needs)",20
+"Myles, Mr. Thomas Francis",571
+"Wirz, Mr. Albert",822
+"Hirvonen, Mrs. Alexander (Helga E Lindqvist)",824
+"Svensson, Mr. Johan Cervin",221
+"Connolly, Miss. Kate",698
+"Caldwell, Mr. Albert Francis",550
+"Abrahim, Mrs. Joseph (Sophie Halaut Easu)",781
+"Davies, Mr. John Samuel",302
+"Ilieff, Mr. Ylio",147
+"Jones, Mr. Charles Cresson",708
+"Snyder, Mrs. John Pillsbury (Nelle Stevenson)",376
+"Howard, Mr. Benjamin",544
+"Chaffee, Mrs. Herbert Fuller (Carrie Constance Toogood)",578
+"del Carlo, Mrs. Sebastiano (Argenia Genovesi)",317
+"Keane, Mr. Daniel",22
+"Assaf, Mr. Gerios",554
+"Ilmakangas, Miss. Ida Livija",193
+"Assaf Khalil, Mrs. Mariana (Miriam"")""",20
+"Rothschild, Mr. Martin",600
+"Olsen, Master. Artur Karl",752
+"Flegenheim, Mrs. Alfred (Antoinette)",843
+"Williams, Mr. Richard Norris II",98
+"Ryerson, Mrs. Arthur Larned (Emily Maria Borie)",764
+"Robins, Mr. Alexander A",339
+"Ostby, Miss. Helene Ragnhild",357
+"Daher, Mr. Shedid",554
+"Brady, Mr. John Bertram",210
+"Samaan, Mr. Elias",302
+"Louch, Mr. Charles Alexander",544
+"Jefferys, Mr. Clifford Thomas",544
+"Dean, Mrs. Bertram (Eva Georgetta Light)",329
+"Johnston, Mrs. Andrew G (Elizabeth Lily"" Watson)""",129
+"Mock, Mr. Philipp Edmund",691
+"Katavelas, Mr. Vassilios (Catavelas Vassilios"")""",763
+"Roth, Miss. Sarah A",217
+"Cacic, Miss. Manda",3
+"Sap, Mr. Julius",208
+"Hee, Mr. Ling",510
+"Karun, Mr. Franz",752
+"Franklin, Mr. Thomas Parham",431
+"Goldsmith, Mr. Nathan",401
+"Corbett, Mrs. Walter H (Irene Colvin)",748
+"Kimball, Mrs. Edwin Nelson Jr (Gertrude Parsons)",578
+"Peltomaki, Mr. Nikolai Johannes",147
+"Chevre, Mr. Paul Romaine",188
+"Shaughnessy, Mr. Patrick",829
+"Bucknell, Mrs. William Robert (Emma Eliza Ward)",830
+"Coutts, Mrs. William (Winnie Minnie"" Treanor)""",256
+"Smith, Mr. Lucien Philip",371
+"Pulbaum, Mr. Franz",548
+"Hocking, Miss. Ellen Nellie""""",601
+"Fortune, Miss. Ethel Flora",342
+"Mangiavacchi, Mr. Serafino Emilio",548
+"Rice, Master. Albert",788
+"Cor, Mr. Bartol",580
+"Abelseth, Mr. Olaus Jorgensen",829
+"Davison, Mr. Thomas Henry",665
+"Chaudanson, Miss. Victorine",717
+"Dika, Mr. Mirko",221
+"McCrae, Mr. Arthur Gordon",548
+"Bjorklund, Mr. Ernst Herbert",205
+"Bradley, Miss. Bridget Delia",142
+"Ryerson, Master. John Borie",803
+"Corey, Mrs. Percy C (Mary Phyllis Elizabeth Miller)",212
+"Burns, Miss. Mary Delia",45
+"Moore, Mr. Clarence Bloomfield",648
+"Tucker, Mr. Gilbert Milligan Jr",840
+"Fortune, Mrs. Mark (Mary McDougald)",439
+"Mulvihill, Miss. Bertha E",290
+"Minkoff, Mr. Lazar",392
+"Nieminen, Miss. Manta Josefina",217
+"Ovies y Rodriguez, Mr. Servando",431
+"Geiger, Miss. Amalie",270
+"Keeping, Mr. Edwin",738
+"Miles, Mr. Frank",147
+"Cornell, Mrs. Robert Clifford (Malvina Helen Lamson)",572
+"Aldworth, Mr. Charles Augustus",674
+"Doyle, Miss. Elizabeth",290
+"Boulos, Master. Akar",349
+"Straus, Mr. Isidor",276
+"Case, Mr. Howard Brown",461
+"Demetri, Mr. Marinko",147
+"Lamb, Mr. John Joseph",227
+"Khalil, Mr. Betros",665
+"Barry, Miss. Julia",316
+"Badman, Miss. Emily Louisa",23
+"O'Donoghue, Ms. Bridget",316
+"Wells, Master. Ralph Lester",341
+"Dyker, Mrs. Adolf Fredrik (Anna Elisabeth Judith Andersson)",831
+"Pedersen, Mr. Olaf",147
+"Davidson, Mrs. Thornton (Orian Hays)",540
+"Guest, Mr. Robert",147
+"Birnbaum, Mr. Jakob",890
+"Tenglin, Mr. Gunnar Isidor",147
+"Cavendish, Mrs. Tyrell William (Julia Florence Siegel)",276
+"Makinen, Mr. Kalle Edvard",456
+"Braf, Miss. Elin Ester Maria",45
+"Nancarrow, Mr. William Henry",430
+"Stengel, Mrs. Charles Emil Henry (Annie May Morris)",578
+"Weisz, Mr. Leopold",544
+"Foley, Mr. William",829
+"Johansson Palmquist, Mr. Oskar Leander",147
+"Thomas, Mrs. Alexander (Thamine Thelma"")""",856
+"Holthen, Mr. Johan Martin",208
+"Buckley, Mr. Daniel",392
+"Ryan, Mr. Edward",829
+"Willer, Mr. Aaron (Abi Weller"")""",822
+"Swane, Mr. George",227
+"Stanton, Mr. Samuel Ward",289
+"Shine, Miss. Ellen Natalia",316
+"Evans, Miss. Edith Corse",843
+"Buckley, Miss. Katherine",787
+"Straus, Mrs. Isidor (Rosalie Ida Blun)",276
+"Chronopoulos, Mr. Demetrios",665
+"Thomas, Mr. John",805
+"Sandstrom, Miss. Beatrice Irene",173
+"Beattie, Mr. Thomson",682
+"Chapman, Mrs. John Henry (Sara Elizabeth Lawry)",54
+"Watt, Miss. Bertha J",390
+"Kiernan, Mr. John",268
+"Schabert, Mrs. Paul (Emma Mock)",4
+"Carver, Mr. Alfred John",37
+"Kennedy, Mr. John",829
+"Cribb, Miss. Laura Alice",856
+"Brobeck, Mr. Karl Rudolf",392
+"McCoy, Miss. Alicia",331
+"Bowenur, Mr. Solomon",289
+"Petersen, Mr. Marius",208
+"Spinner, Mr. Henry John",430
+"Gracie, Col. Archibald IV",450
+"Lefebre, Mrs. Frank (Frances)",859
+"Thomas, Mr. Charles P",268
+"Dintcheff, Mr. Valtcho",415
+"Carlsson, Mr. Carl Robert",392
+"Zakarian, Mr. Mapriededer",554
+"Schmidt, Mr. August",18
+"Drapkin, Miss. Jennie",3
+"Goodwin, Mr. Charles Frederick",679
+"Goodwin, Miss. Jessie Allis",234
+"Daniels, Miss. Sarah",270
+"Ryerson, Mr. Arthur Larned",588
+"Beauchamp, Mr. Henry James",548
+"Lindeberg-Lind, Mr. Erik Gustaf (Mr Edward Lingrey"")""",188
+"Vander Planke, Mr. Julius",302
+"Hilliard, Mr. Herbert Henry",608
+"Davies, Mr. Evan",284
+"Crafton, Mr. John Bertram",431
+"Lahtinen, Rev. William",194
+"Earnshaw, Mrs. Boulton (Olive Potter)",357
+"Matinoff, Mr. Nicola",147
+"Storey, Mr. Thomas",415
+"Klasen, Mrs. (Hulda Kristina Eugenia Lofqvist)",256
+"Asplund, Master. Filip Oscar",262
+"Duquemin, Mr. Joseph",392
+"Bird, Miss. Ellen",731
+"Lundin, Miss. Olga Elida",316
+"Borebank, Mr. John James",188
+"Peacock, Mrs. Benjamin (Edith Nile)",9
+"Smyth, Miss. Julia",698
+"Touma, Master. Georges Youssef",490
+"Wright, Miss. Marion",474
+"Pearce, Mr. Ernest",805
+"Peruschitz, Rev. Joseph Maria",289
+"Kink-Heilmann, Mrs. Anton (Luise Heilmann)",129
+"Brandeis, Mr. Emil",461
+"Ford, Mr. Edward Watson",262
+"Cassebeer, Mrs. Henry Arthur Jr (Eleanor Genevieve Fosdick)",843
+"Hellstrom, Miss. Hilda Maria",678
+"Lithman, Mr. Simon",147
+"Zakarian, Mr. Ortin",805
+"Dyker, Mr. Adolf Fredrik",665
+"Torfa, Mr. Assad",37
+"Asplund, Mr. Carl Oscar Vilhelm Gustafsson",26
+"Brown, Miss. Edith Eileen",238
+"Sincock, Miss. Maude",428
+"Stengel, Mr. Charles Emil Henry",600
+"Becker, Mrs. Allen Oliver (Nellie E Baumgardner)",507
+"Compton, Mrs. Alexander Taylor (Mary Eliza Ingersoll)",541
+"McCrie, Mr. James Matthew",674
+"Compton, Mr. Alexander Taylor Jr",249
+"Marvin, Mrs. Daniel Warner (Mary Graham Carmichael Farquarson)",782
+"Lane, Mr. Patrick",829
+"Douglas, Mrs. Frederick Charles (Mary Helene Baxter)",320
+"Maybery, Mr. Frank Hubert",289
+"Phillips, Miss. Alice Frances Louisa",652
+"Davies, Mr. Joseph",665
+"Sage, Miss. Ada",793
+"Veal, Mr. James",289
+"Angle, Mr. William A",544
+"Salomon, Mr. Abraham L",608
+"van Billiard, Master. Walter John",490
+"Lingane, Mr. John",571
+"Drew, Master. Marshall Brines",828
+"Karlsson, Mr. Julius Konrad Eugen",570
+"Spedden, Master. Robert Douglas",551
+"Nilsson, Miss. Berta Olivia",209
+"Baimbrigge, Mr. Charles Robert",227
+"Rasmussen, Mrs. (Lena Jacobsen Solvang)",217
+"Murphy, Miss. Nora",217
+"Danbom, Master. Gilbert Sigvard Emanuel",804
+"Astor, Col. John Jacob",646
+"Quick, Miss. Winifred Vera",531
+"Andrew, Mr. Frank Thomas",227
+"Omont, Mr. Alfred Fernand",608
+"McGowan, Miss. Katherine",798
+"Collett, Mr. Sidney C Stuart",227
+"Rosenbaum, Miss. Edith Louise",195
+"Delalic, Mr. Redjo",147
+"Andersen, Mr. Albert Karvin",430
+"Finoli, Mr. Luigi",805
+"Deacon, Mr. Percy William",386
+"Howard, Mrs. Benjamin (Ellen Truelove Arman)",433
+"Andersson, Miss. Ida Augusta Margareta",69
+"Head, Mr. Christopher",210
+"Mahon, Miss. Bridget Delia",316
+"Wick, Mr. George Dennick",588
+"Widener, Mrs. George Dunton (Eleanor Elkins)",857
+"Thomson, Mr. Alexander Morrison",147
+"Duran y More, Miss. Florentina",867
+"Reynolds, Mr. Harold J",284
+"Cook, Mrs. (Selena Rogers)",57
+"Karlsson, Mr. Einar Gervasius",392
+"Candee, Mrs. Edward (Helen Churchill Hungerford)",12
+"Moubarek, Mrs. George (Omine Amenia"" Alexander)""",256
+"Asplund, Mr. Johan Charles",392
+"McNeill, Miss. Bridget",316
+"Everett, Mr. Thomas James",339
+"Hocking, Mr. Samuel James Metcalfe",22
+"Sweet, Mr. George Frederick",386
+"Willard, Miss. Constance",888
+"Wiklund, Mr. Karl Johan",665
+"Linehan, Mr. Michael",147
+"Cumings, Mr. John Bradley",225
+"Vendel, Mr. Olof Edvin",392
+"Warren, Mr. Frank Manley",276
+"Baccos, Mr. Raffull",554
+"Hiltunen, Miss. Marta",751
+"Douglas, Mrs. Walter Donald (Mahala Dutton)",53
+"Lindstrom, Mrs. Carl Johan (Sigrid Posse)",12
+"Christy, Mrs. (Alice Frances)",507
+"Spedden, Mr. Frederic Oakley",249
+"Hyman, Mr. Abraham",147
+"Johnston, Master. William Arthur Willie""""",94
+"Kenyon, Mr. Frederick R",622
+"Karnes, Mrs. J Frank (Claire Bennett)",474
+"Drew, Mr. James Vivian",550
+"Hold, Mrs. Stephen (Annie Margaret Hill)",54
+"Khalil, Mrs. Betros (Zahie Maria"" Elias)""",187
+"West, Miss. Barbara J",59
+"Abrahamsson, Mr. Abraham August Johannes",284
+"Clark, Mr. Walter Miller",485
+"Salander, Mr. Karl Johan",208
+"Wenzel, Mr. Linhart",287
+"MacKay, Mr. George William",147
+"Mahon, Mr. John",829
+"Niklasson, Mr. Samuel",445
+"Bentham, Miss. Lilian W",346
+"Midtsjo, Mr. Karl Albert",392
+"de Messemaeker, Mr. Guillaume Joseph",560
+"Nilsson, Mr. August Ferdinand",392
+"Wells, Mrs. Arthur Henry (Addie"" Dart Trevaskis)""",507
+"Klasen, Miss. Gertrud Emilia",173
+"Portaluppi, Mr. Emilio Ilario Giuseppe",674
+"Lyntakoff, Mr. Stanko",147
+"Chisholm, Mr. Roderick Robert Crispin",634
+"Warren, Mr. Charles William",147
+"Howard, Miss. May Elizabeth",217
+"Pokrnic, Mr. Mate",221
+"McCaffry, Mr. Thomas Francis",210
+"Fox, Mr. Patrick",829
+"Clark, Mrs. Walter Miller (Virginia McDowell)",335
+"Lennon, Miss. Mary",242
+"Saade, Mr. Jean Nassr",805
+"Bryhl, Miss. Dagmar Jenny Ingeborg ",547
+"Parker, Mr. Clifford Richard",18
+"Faunthorpe, Mr. Harry",544
+"Ware, Mr. John James",544
+"Oxenham, Mr. Percy Thomas",227
+"Oreskovic, Miss. Jelka",3
+"Peacock, Master. Alfred Edward",756
+"Fleming, Miss. Honora",316
+"Touma, Miss. Maria Youssef",11
+"Rosblom, Miss. Salli Helena",173
+"Dennis, Mr. William",37
+"Franklin, Mr. Charles (Charles Fardon)",37
+"Snyder, Mr. John Pillsbury",485
+"Mardirosian, Mr. Sarkis",37
+"Ford, Mr. Arthur",147
+"Rheims, Mr. George Alexander Lucien",608
+"Daly, Miss. Margaret Marcella Maggie""""",20
+"Nasr, Mr. Mustafa",37
+"Dodge, Dr. Washington",588
+"Wittevrongel, Mr. Camille",287
+"Angheloff, Mr. Minko",147
+"Laroche, Miss. Louise",44
+"Samaan, Mr. Hanna",302
+"Loring, Mr. Joseph Holland",24
+"Johansson, Mr. Nils",456
+"Olsson, Mr. Oscar Wilhelm",570
+"Malachard, Mr. Noel",548
+"Phillips, Mr. Escott Robert",273
+"Pokrnic, Mr. Tome",822
+"McCarthy, Miss. Catherine Katie""""",316
+"Crosby, Mrs. Edward Gifford (Catherine Elizabeth Halstead)",821
+"Allison, Mr. Hudson Joshua Creighton",391
+"Aks, Master. Philip Frank",804
+"Hays, Mr. Charles Melville",588
+"Hansen, Mrs. Claus Peter (Jennie L Howard)",560
+"Cacic, Mr. Jego Grga",205
+"Vartanian, Mr. David",554
+"Sadowitz, Mr. Harry",147
+"Carr, Miss. Jeannie",798
+"White, Mrs. John Stuart (Ella Holmes)",196
+"Hagardon, Miss. Kate",157
+"Spencer, Mr. William Augustus",661
+"Rogers, Mr. Reginald Harry",227
+"Jonsson, Mr. Nils Hilding",147
+"Jefferys, Mr. Ernest Wilfred",544
+"Andersson, Mr. Johan Samuel",147
+"Krekorian, Mr. Neshan",37
+"Nesson, Mr. Israel",18
+"Rowe, Mr. Alfred G",448
+"Kreuchen, Miss. Emilie",717
+"Assam, Mr. Ali",128
+"Becker, Miss. Ruth Elizabeth",619
+"Rosenshine, Mr. George (Mr George Thorne"")""",188
+"Clarke, Mr. Charles Valentine",544
+"Enander, Mr. Ingvar",227
+"Davies, Mrs. John Morgan (Elizabeth Agnes Mary White) ",260
+"Dulles, Mr. William Crothers",210
+"Thomas, Mr. Tannous",805
+"Nakid, Mrs. Said (Waika Mary"" Mowad)""",11
+"Cor, Mr. Ivan",147
+"Maguire, Mr. John Edward",702
+"de Brito, Mr. Jose Joaquim",674
+"Elias, Mr. Joseph",37
+"Denbury, Mr. Herbert",548
+"Betros, Master. Seman",37
+"Fillbrook, Mr. Joseph Charles",227
+"Lundstrom, Mr. Thure Edvin",570
+"Sage, Mr. John George",679
+"Cardeza, Mrs. James Warburton Martinez (Charlotte Wardle Drake)",269
+"van Billiard, Master. James William",710
+"Abelseth, Miss. Karen Marie",157
+"Botsford, Mr. William Hull",18
+"Whabee, Mrs. George Joseph (Shawneene Abi-Saab)",368
+"Giles, Mr. Ralph",548
+"Walcroft, Miss. Nellie",212
+"Greenfield, Mrs. Leo David (Blanche Strouse)",524
+"Stokes, Mr. Philip Joseph",227
+"Dibden, Mr. William",386
+"Herman, Mr. Samuel",755
+"Dean, Miss. Elizabeth Gladys Millvina""""",789
+"Julian, Mr. Henry Forbes",858
+"Brown, Mrs. John Murray (Caroline Lane Lamson)",572
+"Lockyer, Mr. Edward",147
+"O'Keefe, Mr. Patrick",829
+"Lindell, Mrs. Edvard Bengtsson (Elin Gerda Persson)",242
+"Sage, Master. William Henry",202
+"Mallet, Mrs. Albert (Antoinette Magnin)",581
+"Ware, Mrs. John James (Florence Louise Long)",212
+"Strilic, Mr. Ivan",822
+"Harder, Mrs. George Achilles (Dorothy Annan)",152
+"Sage, Mrs. John (Annie Bullen)",26
+"Caram, Mr. Joseph",665
+"Riihivouri, Miss. Susanna Juhantytar Sanni""""",678
+"Gibson, Mrs. Leonard (Pauline C Boeson)",524
+"Pallas y Castello, Mr. Emilio",548
+"Giles, Mr. Edgar",227
+"Wilson, Miss. Helen Alice",538
+"Ismay, Mr. Joseph Bruce",264
+"Harbeck, Mr. William H",289
+"Dodge, Mrs. Washington (Ruth Vidaver)",821
+"Bowen, Miss. Grace Scott",381
+"Kink, Miss. Maria",193
+"Cotterill, Mr. Henry Harry""""",227
+"Hipkins, Mr. William Edward",648
+"Asplund, Master. Carl Edgar",262
+"O'Connor, Mr. Patrick",829
+"Foley, Mr. Joseph",147
+"Risien, Mrs. Samuel (Emma)",217
+"McNamee, Mrs. Neal (Eileen O'Leary)",143
+"Wheeler, Mr. Edwin Frederick""""",18
+"Herman, Miss. Kate",616
+"Aronsson, Mr. Ernst Axel Algot",392
+"Ashby, Mr. John",571
+"Canavan, Mr. Patrick",392
+"Palsson, Master. Paul Folke",349
+"Payne, Mr. Vivian Ponsonby",682
+"Lines, Mrs. Ernest H (Elizabeth Lindsey James)",880
+"Abbott, Master. Eugene Joseph",166
+"Gilbert, Mr. William",289
+"Kink-Heilmann, Mr. Anton",710
+"Smith, Mrs. Lucien Philip (Mary Eloise Hughes)",782
+"Colbert, Mr. Patrick",554
+"Frolicher-Stehli, Mrs. Maxmillian (Margaretha Emerentia Stehli)",559
+"Larsson-Rondberg, Mr. Edvard A",392
+"Conlon, Mr. Thomas Henry",511
+"Bonnell, Miss. Caroline",538
+"Gale, Mr. Harry",544
+"Gibson, Miss. Dorothy Winifred",357
+"Carrau, Mr. Jose Pedro",98
+"Frauenthal, Mr. Isaac Gerald",622
+"Nourney, Mr. Alfred (Baron von Drachstedt"")""",548
+"Ware, Mr. William Jeffery",227
+"Widener, Mr. George Dunton",588
+"Riordan, Miss. Johanna Hannah""""",698
+"Peacock, Miss. Treasteall",11
+"Naughton, Miss. Hannah",316
+"Minahan, Mrs. William Edward (Lillian E Thorpe)",487
+"Henriksson, Miss. Jenny Lovisa",83
+"Spector, Mr. Woolf",147
+"Oliva y Ocana, Dona. Fermina",62
+"Saether, Mr. Simon Sivertsen",37
+"Ware, Mr. Frederick",147
+"Peter, Master. Michael J",710
