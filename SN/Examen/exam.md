@@ -156,10 +156,30 @@ AFTER DELETE ON users
 FOR EACH ROW
 EXECUTE PROCEDURE del_user_related();
 ```
+## 6... [ X ]
+>In lab, we studied an e­Commerce product catalog for an album product. Imagine that you have a mongoDB consisting of entries similar to the following:
+```sql
+{
+  type: "Audio Album",
+  title: "A Love Supreme",
+  description: "by John Coltrane",
+  details: {
+      artist: "John Coltrane",
+      genre: [ "Jazz" ]
+  },
+}
+```
+> [[ Write a python interface with pyMongDB that will find the CDs by artist and genre. ]]
+
+```python
+pass
+```
 
 ## 7...
 
 ### [ 7. A ]
+> Write a short python script using sklearn to compare the prediction of a Random Forest classifier to an SVM classifier in the context of supervised learning.
+
 ```python
 from sklearn import datasets
 from sklearn import metrics
@@ -182,6 +202,8 @@ print "RAND_FOREST = {}".format(metrics.accuracy_score(iris.target, predicted2))
 ```
 
 ### [ 7. B ]
+> How could you implement a 10-fold Cross validation.
+
 ```python
 import numpy as np
 from random import randint
@@ -197,6 +219,11 @@ for train, test in kf.split(dataset):
 ```
 
 ## 8... [ X ]
+> Imagine you have a huge data set consisting of feature vectors with a large number of attributes. You have used supervised learning to classify new data but you want to confirm “visually” whether your predictions make sense. [[ In this context, explain how the t­SNE manifold method could be a useful tool (hint: first explain what t­SNE is and what it can do, then explain how it could be used here) ]]
+
+```python
+pass
+```
 
 ## 9...
 > Basic empty Module in Odoo. Explain how you would install an empty odoo module. (hint: You should use the “scaffold” command from odoo to create an empty project). Where should you deposit the directory for your custom project? Explain what you would need to do to deploy this custom module so that it installed.
@@ -209,4 +236,11 @@ cp -R MisModulos/SN_Moulo_Examen /usr/lib/python2.7/dist-packages/openerp/addons
 
 # Por último, vía web accedemos a nuestro Odoo y en la pestaña de modulos,
 # tras acctualizar, podremos ver nuestro modulo en el listado e instalarlo.
+```
+
+## 10... [ X ]
+> Imagine that you have want to modify the default “Manufacturing Order” workflow in Odoo in order to adapt to the requirements of your company. In particular, you want the final approval of the manufacture order to depend upon the Supervisor if the cost value of raw materials passes a certain amount (5000Euros). [[ Explain “qualitatively” how this could be accomplished using the Odoo custom workflow editor. An example of the workflow is given below ]].
+
+```python
+pass
 ```
